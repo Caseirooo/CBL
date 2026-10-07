@@ -1,0 +1,399 @@
+NAME: Pancakes
+TIME: 20
+DIFFICULTY: 1
+INGREDIENT: eggs, 2, Dairy
+INGREDIENT: flour, 200, Grains
+INGREDIENT: milk, 300, Dairy
+INGREDIENT: butter, 20, Dairy
+INGREDIENT: sugar, 20, Other
+STEP: Whisk the eggs, milk and sugar together.
+STEP: Stir in the flour until the batter is smooth.
+STEP: Melt some butter in a pan over medium heat.
+STEP: Pour in a small amount of batter and fry until golden on both sides.
+
+NAME: Scrambled eggs
+TIME: 10
+DIFFICULTY: 1
+INGREDIENT: eggs, 3, Dairy
+INGREDIENT: milk, 30, Dairy
+INGREDIENT: butter, 10, Dairy
+INGREDIENT: salt, 2, Other
+STEP: Whisk the eggs with the milk and salt.
+STEP: Melt the butter in a pan over low heat.
+STEP: Add the eggs and stir gently until just set.
+
+NAME: Cheese omelette
+TIME: 15
+DIFFICULTY: 1
+INGREDIENT: eggs, 3, Dairy
+INGREDIENT: cheese, 40, Dairy
+INGREDIENT: onion, 1, Vegetables
+INGREDIENT: butter, 10, Dairy
+INGREDIENT: salt, 2, Other
+STEP: Chop the onion and fry it in the butter until soft.
+STEP: Whisk the eggs with the salt and pour them into the pan.
+STEP: When the eggs are almost set, add the cheese.
+STEP: Fold the omelette in half and serve.
+
+NAME: Grilled cheese sandwich
+TIME: 10
+DIFFICULTY: 1
+INGREDIENT: bread, 2, Grains
+INGREDIENT: cheese, 50, Dairy
+INGREDIENT: butter, 15, Dairy
+STEP: Butter one side of each slice of bread.
+STEP: Put the cheese between the slices, buttered sides outward.
+STEP: Fry in a pan until golden on both sides and the cheese has melted.
+
+NAME: Tomato pasta
+TIME: 25
+DIFFICULTY: 1
+INGREDIENT: pasta, 200, Grains
+INGREDIENT: tomato, 3, Vegetables
+INGREDIENT: onion, 1, Vegetables
+INGREDIENT: garlic, 2, Vegetables
+INGREDIENT: olive oil, 20, Other
+INGREDIENT: salt, 5, Other
+STEP: Cook the pasta in salted water according to the packet.
+STEP: Chop the onion, garlic and tomatoes.
+STEP: Fry the onion and garlic in the olive oil until soft.
+STEP: Add the tomatoes and cook for 10 minutes.
+STEP: Mix the sauce with the drained pasta.
+
+NAME: Spaghetti bolognese
+TIME: 40
+DIFFICULTY: 2
+INGREDIENT: pasta, 200, Grains
+INGREDIENT: minced beef, 250, Meat
+INGREDIENT: tomato, 3, Vegetables
+INGREDIENT: onion, 1, Vegetables
+INGREDIENT: garlic, 2, Vegetables
+INGREDIENT: olive oil, 20, Other
+STEP: Chop the onion, garlic and tomatoes.
+STEP: Fry the onion and garlic in the olive oil until soft.
+STEP: Add the minced beef and cook until browned.
+STEP: Add the tomatoes and simmer for 20 minutes.
+STEP: Cook the pasta and serve it with the sauce.
+
+NAME: Vegetable fried rice
+TIME: 30
+DIFFICULTY: 2
+INGREDIENT: rice, 200, Grains
+INGREDIENT: eggs, 2, Dairy
+INGREDIENT: carrot, 1, Vegetables
+INGREDIENT: onion, 1, Vegetables
+INGREDIENT: soy sauce, 30, Other
+INGREDIENT: olive oil, 20, Other
+STEP: Cook the rice and let it cool.
+STEP: Chop the carrot and onion into small pieces.
+STEP: Fry the vegetables in the oil for 5 minutes.
+STEP: Push them aside, scramble the eggs in the pan, then mix everything.
+STEP: Add the rice and soy sauce and fry for another 5 minutes.
+
+NAME: Chicken curry
+TIME: 45
+DIFFICULTY: 2
+INGREDIENT: chicken breast, 300, Meat
+INGREDIENT: onion, 1, Vegetables
+INGREDIENT: garlic, 2, Vegetables
+INGREDIENT: curry powder, 15, Other
+INGREDIENT: coconut milk, 400, Other
+INGREDIENT: rice, 200, Grains
+STEP: Cook the rice according to the packet.
+STEP: Chop the onion and garlic and fry them until soft.
+STEP: Cut the chicken into pieces, add it, and fry until no longer pink.
+STEP: Stir in the curry powder, then add the coconut milk.
+STEP: Simmer for 20 minutes and serve with the rice.
+
+NAME: Banana smoothie
+TIME: 5
+DIFFICULTY: 1
+INGREDIENT: banana, 2, Fruit
+INGREDIENT: milk, 250, Dairy
+INGREDIENT: yogurt, 100, Dairy
+INGREDIENT: honey, 10, Other
+STEP: Peel the bananas and break them into pieces.
+STEP: Put everything in a blender and blend until smooth.
+
+NAME: Greek salad
+TIME: 15
+DIFFICULTY: 1
+INGREDIENT: tomato, 2, Vegetables
+INGREDIENT: cucumber, 1, Vegetables
+INGREDIENT: onion, 1, Vegetables
+INGREDIENT: feta, 100, Dairy
+INGREDIENT: olive oil, 20, Other
+STEP: Chop the tomatoes, cucumber and onion.
+STEP: Put them in a bowl and crumble the feta on top.
+STEP: Drizzle with olive oil and mix gently.
+
+NAME: Mashed potatoes
+TIME: 30
+DIFFICULTY: 1
+INGREDIENT: potato, 5, Vegetables
+INGREDIENT: butter, 40, Dairy
+INGREDIENT: milk, 100, Dairy
+INGREDIENT: salt, 5, Other
+STEP: Peel and cut the potatoes, then boil them for 20 minutes until soft.
+STEP: Drain the potatoes and mash them.
+STEP: Stir in the butter, milk and salt.
+
+NAME: Potato soup
+TIME: 40
+DIFFICULTY: 2
+INGREDIENT: potato, 4, Vegetables
+INGREDIENT: onion, 1, Vegetables
+INGREDIENT: carrot, 2, Vegetables
+INGREDIENT: butter, 20, Dairy
+INGREDIENT: vegetable stock, 800, Other
+INGREDIENT: salt, 5, Other
+STEP: Peel and chop the potatoes, onion and carrots.
+STEP: Fry the onion in the butter until soft.
+STEP: Add the potatoes, carrots and stock, and simmer for 25 minutes.
+STEP: Blend the soup until smooth and season with salt.
+
+NAME: Chocolate chip cookies
+TIME: 35
+DIFFICULTY: 2
+INGREDIENT: flour, 250, Grains
+INGREDIENT: butter, 125, Dairy
+INGREDIENT: sugar, 150, Other
+INGREDIENT: eggs, 1, Dairy
+INGREDIENT: chocolate, 100, Other
+STEP: Preheat the oven to 180 degrees.
+STEP: Mix the soft butter and sugar, then beat in the egg.
+STEP: Stir in the flour, then the chopped chocolate.
+STEP: Put small balls of dough on a baking tray.
+STEP: Bake for 12 minutes until golden at the edges.
+
+NAME: Mushroom risotto
+TIME: 50
+DIFFICULTY: 3
+INGREDIENT: rice, 250, Grains
+INGREDIENT: mushrooms, 200, Vegetables
+INGREDIENT: onion, 1, Vegetables
+INGREDIENT: butter, 30, Dairy
+INGREDIENT: cheese, 50, Dairy
+INGREDIENT: vegetable stock, 800, Other
+STEP: Chop the onion and slice the mushrooms.
+STEP: Fry the onion and mushrooms in the butter until soft.
+STEP: Add the rice and stir for 2 minutes.
+STEP: Add the stock a little at a time, stirring until each part is absorbed.
+STEP: After about 20 minutes, stir in the cheese and serve.
+
+NAME: Lasagna
+TIME: 90
+DIFFICULTY: 3
+INGREDIENT: lasagna sheets, 250, Grains
+INGREDIENT: minced beef, 400, Meat
+INGREDIENT: tomato, 4, Vegetables
+INGREDIENT: onion, 1, Vegetables
+INGREDIENT: cheese, 150, Dairy
+INGREDIENT: milk, 500, Dairy
+INGREDIENT: flour, 40, Grains
+INGREDIENT: butter, 40, Dairy
+STEP: Fry the chopped onion and minced beef, add the chopped tomatoes, and simmer for 20 minutes.
+STEP: For the white sauce, melt the butter, stir in the flour, then slowly whisk in the milk.
+STEP: In a baking dish, layer meat sauce, lasagna sheets and white sauce, and repeat.
+STEP: Top with the cheese.
+STEP: Bake at 180 degrees for 40 minutes.
+
+NAME: French toast
+TIME: 15
+DIFFICULTY: 1
+INGREDIENT: bread, 2, Grains
+INGREDIENT: eggs, 2, Dairy
+INGREDIENT: milk, 100, Dairy
+INGREDIENT: butter, 15, Dairy
+INGREDIENT: sugar, 10, Other
+STEP: Whisk the eggs, milk and sugar in a shallow bowl.
+STEP: Soak each slice of bread in the mixture for a few seconds.
+STEP: Fry the bread in the butter until golden on both sides.
+
+NAME: Mac and cheese
+TIME: 30
+DIFFICULTY: 2
+INGREDIENT: pasta, 200, Grains
+INGREDIENT: cheese, 150, Dairy
+INGREDIENT: milk, 300, Dairy
+INGREDIENT: butter, 30, Dairy
+INGREDIENT: flour, 30, Grains
+STEP: Cook the pasta according to the packet.
+STEP: Melt the butter in a pan and stir in the flour.
+STEP: Slowly whisk in the milk until the sauce thickens.
+STEP: Stir in the cheese until melted.
+STEP: Mix the sauce with the drained pasta.
+
+NAME: Chicken stir-fry
+TIME: 30
+DIFFICULTY: 2
+INGREDIENT: chicken breast, 250, Meat
+INGREDIENT: carrot, 1, Vegetables
+INGREDIENT: onion, 1, Vegetables
+INGREDIENT: garlic, 2, Vegetables
+INGREDIENT: soy sauce, 30, Other
+INGREDIENT: olive oil, 20, Other
+INGREDIENT: rice, 200, Grains
+STEP: Cook the rice according to the packet.
+STEP: Cut the chicken into strips and slice the vegetables.
+STEP: Fry the chicken in the oil until cooked through.
+STEP: Add the vegetables and garlic and fry for 5 minutes.
+STEP: Stir in the soy sauce and serve with the rice.
+
+NAME: Tomato soup
+TIME: 35
+DIFFICULTY: 1
+INGREDIENT: tomato, 6, Vegetables
+INGREDIENT: onion, 1, Vegetables
+INGREDIENT: garlic, 2, Vegetables
+INGREDIENT: vegetable stock, 500, Other
+INGREDIENT: olive oil, 20, Other
+INGREDIENT: salt, 5, Other
+STEP: Chop the tomatoes, onion and garlic.
+STEP: Fry the onion and garlic in the olive oil until soft.
+STEP: Add the tomatoes and stock and simmer for 20 minutes.
+STEP: Blend until smooth and season with salt.
+
+NAME: Garlic bread
+TIME: 15
+DIFFICULTY: 1
+INGREDIENT: bread, 4, Grains
+INGREDIENT: butter, 40, Dairy
+INGREDIENT: garlic, 3, Vegetables
+STEP: Preheat the oven to 200 degrees.
+STEP: Crush the garlic and mix it with the soft butter.
+STEP: Spread the garlic butter on the bread.
+STEP: Bake for 8 minutes until crispy.
+
+NAME: Fruit salad
+TIME: 10
+DIFFICULTY: 1
+INGREDIENT: banana, 2, Fruit
+INGREDIENT: apple, 2, Fruit
+INGREDIENT: orange, 2, Fruit
+INGREDIENT: honey, 15, Other
+STEP: Peel and chop all the fruit into bite-sized pieces.
+STEP: Put the fruit in a bowl, drizzle with honey, and mix gently.
+
+NAME: Apple crumble
+TIME: 50
+DIFFICULTY: 2
+INGREDIENT: apple, 4, Fruit
+INGREDIENT: flour, 150, Grains
+INGREDIENT: butter, 100, Dairy
+INGREDIENT: sugar, 100, Other
+STEP: Preheat the oven to 180 degrees.
+STEP: Peel and slice the apples and put them in a baking dish.
+STEP: Rub the flour, butter and sugar together until it looks like crumbs.
+STEP: Spread the crumble over the apples.
+STEP: Bake for 35 minutes until golden.
+
+NAME: Overnight oats
+TIME: 5
+DIFFICULTY: 1
+INGREDIENT: oats, 80, Grains
+INGREDIENT: milk, 200, Dairy
+INGREDIENT: yogurt, 50, Dairy
+INGREDIENT: banana, 1, Fruit
+INGREDIENT: honey, 10, Other
+STEP: Mix the oats, milk, yogurt and honey in a jar.
+STEP: Leave in the fridge overnight.
+STEP: Slice the banana on top before eating.
+
+NAME: Homemade pizza
+TIME: 90
+DIFFICULTY: 3
+INGREDIENT: flour, 300, Grains
+INGREDIENT: yeast, 7, Other
+INGREDIENT: olive oil, 20, Other
+INGREDIENT: salt, 5, Other
+INGREDIENT: tomato, 3, Vegetables
+INGREDIENT: cheese, 150, Dairy
+STEP: Mix the flour, yeast, salt, olive oil and 200 ml of warm water into a dough.
+STEP: Knead for 10 minutes, then let it rise for 1 hour.
+STEP: Preheat the oven to 220 degrees.
+STEP: Roll out the dough and spread chopped tomatoes on top.
+STEP: Add the cheese and bake for 15 minutes.
+
+NAME: Cheeseburger
+TIME: 25
+DIFFICULTY: 2
+INGREDIENT: minced beef, 300, Meat
+INGREDIENT: burger buns, 2, Grains
+INGREDIENT: cheese, 40, Dairy
+INGREDIENT: tomato, 1, Vegetables
+INGREDIENT: onion, 1, Vegetables
+INGREDIENT: salt, 2, Other
+STEP: Season the minced beef with salt and shape it into two burgers.
+STEP: Fry the burgers for 4 minutes on each side.
+STEP: Put a slice of cheese on each burger to melt.
+STEP: Slice the tomato and onion.
+STEP: Put everything in the buns.
+
+NAME: Shakshuka
+TIME: 30
+DIFFICULTY: 2
+INGREDIENT: eggs, 4, Dairy
+INGREDIENT: tomato, 5, Vegetables
+INGREDIENT: onion, 1, Vegetables
+INGREDIENT: garlic, 2, Vegetables
+INGREDIENT: olive oil, 20, Other
+INGREDIENT: salt, 3, Other
+STEP: Chop the onion, garlic and tomatoes.
+STEP: Fry the onion and garlic in the olive oil until soft.
+STEP: Add the tomatoes and salt and simmer for 10 minutes.
+STEP: Make four small holes in the sauce and crack an egg into each.
+STEP: Cover and cook until the eggs are set.
+
+NAME: Chicken and potato traybake
+TIME: 60
+DIFFICULTY: 2
+INGREDIENT: chicken breast, 300, Meat
+INGREDIENT: potato, 4, Vegetables
+INGREDIENT: carrot, 2, Vegetables
+INGREDIENT: onion, 1, Vegetables
+INGREDIENT: olive oil, 30, Other
+INGREDIENT: salt, 5, Other
+STEP: Preheat the oven to 200 degrees.
+STEP: Cut the potatoes, carrots and onion into chunks.
+STEP: Put the vegetables and chicken on a baking tray.
+STEP: Drizzle with olive oil and sprinkle with salt.
+STEP: Bake for 45 minutes, turning everything halfway.
+
+NAME: Banana bread
+TIME: 75
+DIFFICULTY: 2
+INGREDIENT: banana, 3, Fruit
+INGREDIENT: flour, 200, Grains
+INGREDIENT: butter, 80, Dairy
+INGREDIENT: sugar, 100, Other
+INGREDIENT: eggs, 2, Dairy
+STEP: Preheat the oven to 175 degrees.
+STEP: Mash the bananas and mix in the melted butter and sugar.
+STEP: Beat in the eggs, then stir in the flour.
+STEP: Pour into a loaf tin and bake for 55 minutes.
+
+NAME: Chocolate brownies
+TIME: 45
+DIFFICULTY: 2
+INGREDIENT: chocolate, 200, Other
+INGREDIENT: butter, 150, Dairy
+INGREDIENT: sugar, 200, Other
+INGREDIENT: eggs, 3, Dairy
+INGREDIENT: flour, 100, Grains
+STEP: Preheat the oven to 180 degrees.
+STEP: Melt the chocolate and butter together.
+STEP: Whisk the eggs and sugar, then stir in the chocolate mixture.
+STEP: Fold in the flour and pour into a baking tin.
+STEP: Bake for 25 minutes.
+
+NAME: Cheese quesadilla
+TIME: 15
+DIFFICULTY: 1
+INGREDIENT: tortillas, 2, Grains
+INGREDIENT: cheese, 80, Dairy
+INGREDIENT: onion, 1, Vegetables
+INGREDIENT: tomato, 1, Vegetables
+STEP: Chop the onion and tomato.
+STEP: Put cheese, onion and tomato on one tortilla and cover it with the other.
+STEP: Fry in a dry pan until golden on both sides and the cheese has melted.
