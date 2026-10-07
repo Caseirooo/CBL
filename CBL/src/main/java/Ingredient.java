@@ -12,7 +12,7 @@ public class Ingredient {
     private String name;
     private int quantity;
     private String category;
-    int n; //quantity to be changed
+    int n; //quantity to be changed NEEDS TO BE EDITED
 
     public Ingredient(String name, int quantity, String category) {
         this.name = name;
