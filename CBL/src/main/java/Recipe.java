@@ -1,22 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
+import java.util.ArrayList;
 
 /**
+ * this class contains information about the name of the recipe, list of
+ * Ingredients needed, instructions, prep time, and difficulty
  *
  * @author anast
  */
-//this class contains information about the name of the recipe, list of Ingredients needed, instructions, prep time, and difficulty
-import java.util.ArrayList;
 
 public class Recipe {
 
-    private String name;
-    private ArrayList<Ingredient> ingredients; //ArrayList allows to adapt to every recipe - each recipe has dif number of ingredients 
-    private ArrayList<String> instructions; //and a dif set of instructions^^
-    private int prepTime;
-    private int difficulty;
+    private final String name;
+    private final ArrayList<Ingredient> ingredients; //ArrayList allows to adapt to every recipe - each recipe has different number of ingredients 
+    private final ArrayList<String> instructions; // allows to adapt to every recipe - each recipe has a different set of instructions
+    private final int prepTime; //prep time is in minutes
+    private final int difficulty; //difficulty is 1=easy, 2=medium, 3=hard
 
     public Recipe(String name, ArrayList<Ingredient> ingredients,
             ArrayList<String> instructions, int prepTime, int difficulty) {
