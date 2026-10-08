@@ -1,6 +1,7 @@
-IngredientReader.class
 CBL.class
 Ingredient.class
 Catalog.class
+RecipeReader.class
+IngredientReader.class
 NewJFrame.class
 Recipe.class
