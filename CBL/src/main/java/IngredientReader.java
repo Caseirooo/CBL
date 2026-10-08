@@ -25,9 +25,9 @@ public class IngredientReader {
                 Ingredient ingredient = new Ingredient(ingredientName, 0, parts[0]);
                 //System.out.println(ingredientName); // test if ingredients are printing right
             }
-//            for (String n : parts){
-//                System.out.println(n); test what is in parts 
-//            }
+            for (String n : parts){
+                System.out.println(n); // test what is in parts 
+            }
         }
     }
 
