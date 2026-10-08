@@ -10,7 +10,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 
-public class FileStorage {
+public class IngredientReader {
 
     public void readCatalog() throws Exception { //ignores the possibility of the file being deleted
         BufferedReader reader = new BufferedReader(new FileReader("catalog.txt"));
@@ -32,7 +32,7 @@ public class FileStorage {
     }
 
     public static void main(String[] args) throws Exception {
-        FileStorage storage = new FileStorage();
+        IngredientReader storage = new IngredientReader();
         storage.readCatalog();
-    }                                 //TEST PRINT CATALOG
+    }                                 //TEST MEHTOD
 }
