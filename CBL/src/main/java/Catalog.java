@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Catalog {
     
     private String[] categories;
-    private ArrayList<Ingredient> ingredients; // this is an array that can grow as we add new ingredients
+    private ArrayList<Ingredient> ingredients;
 
     public Catalog(String[] categories){
         this.categories = categories;
