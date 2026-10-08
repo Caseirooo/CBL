@@ -8,5 +8,19 @@ import java.util.Scanner;
  * @author anast
  */
 public class RecipeReader {
-    
+    public static void main(String[] args) {
+     try {
+            File file = new File("recipe.txt");
+            Scanner reader = new Scanner(file);
+
+            while (reader.hasNextLine()) {
+                String line = reader.nextLine();
+                System.out.println(line);
+            }
+
+            reader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Could not find recipe.txt");
+        }
+    }
 }
