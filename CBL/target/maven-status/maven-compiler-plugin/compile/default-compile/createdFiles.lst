@@ -5,3 +5,4 @@ RecipeReader.class
 IngredientReader.class
 NewJFrame.class
 Recipe.class
+TestReader.class
