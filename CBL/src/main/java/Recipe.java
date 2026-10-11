@@ -16,8 +16,8 @@ public class Recipe {
     private final int prepTime; //prep time is in minutes
     private final int difficulty; //difficulty is 1=easy, 2=medium, 3=hard
 
-    public Recipe(String name, ArrayList<Ingredient> ingredients,
-            ArrayList<String> instructions, int prepTime, int difficulty) {
+    public Recipe(String name, int prepTime,  int difficulty, ArrayList<Ingredient> ingredients,
+            ArrayList<String> instructions) {
         this.name = name;
         this.ingredients = ingredients;
         this.instructions = instructions;

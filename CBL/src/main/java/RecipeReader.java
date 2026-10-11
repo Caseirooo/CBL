@@ -47,10 +47,9 @@ public class RecipeReader {
                             ingredientQuantity, ingredientCategory);
                     ingredientList.add(ingredient);
                 }
-                
-                
+
                 System.out.println(name);
-                System.out.println("Time to cook this recipe: " + time);
+                System.out.println("Cooking time: " + time);
                 System.out.println("Difficulty: " + difficulty);
                 System.out.println("Ingredients required: ");
                 //prints each ingredient name and quantity using the getters from class Ingredient
@@ -58,15 +57,21 @@ public class RecipeReader {
                     System.out.println(ingredient.getName() + " "
                             + ingredient.getQuantity());
                 }
-                
+
+                // splits the steps into a list, one instruction per item (printing is just for testing)
                 System.out.println("Instructions: ");
                 ArrayList<String> instructionList = new ArrayList<>();
                 String[] instructionSteps = steps.split(";");
-                
-                for (String step : instructionSteps){
+
+                for (String step : instructionSteps) {
                     System.out.println(step);
                     instructionList.add(step);
                 }
+                
+                //create the recipe and add it to the list 
+                Recipe recipe = new Recipe(name, time, difficulty, ingredientList, instructionList); 
+                recipes.add(recipe);
+                
             }
 
             reader.close(); //closes file 
