@@ -11,16 +11,18 @@ public class RecipeMatcher {
 
     public int calculateCompatibility(ArrayList<Ingredient> pantry, Recipe recipe) {
         int matchedIngredients = 0;
-        int compatibility;
-
+        
+        /*this loop works like this: for each ingredient that the recipe needs, 
+        it searches the pantry for this ingredient in an amount that is large enough.*/
         for (Ingredient needed : recipe.getIngredients()) {
             for (Ingredient userHas : pantry) {
-                if (userHas.getName().equals(needed.getName())
+                if (userHas.getName().equalsIgnoreCase(needed.getName())
                         && userHas.getQuantity() >= needed.getQuantity()) {
                     matchedIngredients = matchedIngredients + 1;
                 }
             }
         }
+        int compatibility;
         compatibility = matchedIngredients * 100 / recipe.getIngredients().size();
         return compatibility;
     }
