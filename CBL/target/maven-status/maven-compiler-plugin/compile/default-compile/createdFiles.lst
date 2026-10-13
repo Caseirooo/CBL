@@ -1,8 +1,10 @@
+Pantry.class
 TestMatcher.class
 CBL.class
 Ingredient.class
 Catalog.class
 RecipeReader.class
+test.class
 IngredientReader.class
 RecipeMatcher.class
 NewJFrame.class

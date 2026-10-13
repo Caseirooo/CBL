@@ -10,29 +10,74 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class IngredientReader {
 
-    public void readCatalog() throws Exception { //ignores the possibility of the file being deleted
-        BufferedReader reader = new BufferedReader(new FileReader("catalog.txt"));
-        String line;
-        while ((line = reader.readLine()) != null) {
+    public Catalog readCatalog() throws IOException {
 
-            String[] parts = line.split(":"); //sperate parts on the :, parts[0] = cat 1 ingredients
-            String[] ingredientNames = parts[1].split(","); //seperates again on the ingridients this time
+        ArrayList<String> categoryNames = new ArrayList<>();
+        ArrayList<Ingredient> loadedIngredients = new ArrayList<>();
 
-            for (String ingredientName : ingredientNames) { // temp call ingridientNames[n] ingredientName
-                ingredientName = ingredientName.trim();
-                Ingredient ingredient = new Ingredient(ingredientName, 0, parts[0]);
-                //System.out.println(ingredientName); // test if ingredients are printing right
-            }
-            for (String n : parts){
-                System.out.println(n); // test what is in parts 
+        try (BufferedReader reader =
+                new BufferedReader(new FileReader("catalog.txt"))) {
+
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+
+                String[] parts = line.split(":", 2);
+
+                if (parts.length != 2) {
+                    continue;
+                }
+
+                String category = parts[0].trim();
+
+                if (!categoryNames.contains(category)) {
+                    categoryNames.add(category);
+                }
+
+                String[] ingredientNames = parts[1].split(",");
+
+                for (String ingredientName : ingredientNames) {
+                    ingredientName = ingredientName.trim();
+
+                    if (!ingredientName.isEmpty()) {
+                        Ingredient ingredient =
+                                new Ingredient(ingredientName, 0, category);
+
+                        loadedIngredients.add(ingredient);
+                    }
+                }
             }
         }
+
+        String[] categories = categoryNames.toArray(new String[0]);
+
+        Catalog catalog = new Catalog(categories);
+
+        for (Ingredient ingredient : loadedIngredients) {
+            catalog.addIngredient(ingredient);
+        }
+
+        return catalog;
     }
 
-    public static void main(String[] args) throws Exception {
-        IngredientReader storage = new IngredientReader();
-        storage.readCatalog();
-    }                                 //TEST MEHTOD
+    public static void main(String[] args) throws IOException {
+
+        IngredientReader reader = new IngredientReader();
+        Catalog catalog = reader.readCatalog();
+
+        for (Ingredient ingredient : catalog.getIngredients()) {
+            System.out.println(
+                    ingredient.getCategory() + ": "
+                    + ingredient.getName()
+            );
+        }
+    }
 }

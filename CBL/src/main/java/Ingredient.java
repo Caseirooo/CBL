@@ -7,35 +7,32 @@
  *
  * @author franc
  */
+
 public class Ingredient {
 
     private String name;
     private int quantity;
     private String category;
-    int n; //quantity to be changed NEEDS TO BE EDITED
 
     public Ingredient(String name, int quantity, String category) {
         this.name = name;
         this.quantity = quantity;
         this.category = category;
-
     }
 
     public String getName() {
-
         return name;
     }
-    
-    public int getQuantity() {
 
+    public int getQuantity() {
         return quantity;
     }
-    public void changeQuantity(int n){
-        this.quantity = quantity - n;
-    }
-    
-    public String getCategory() {
 
+    public String getCategory() {
         return category;
+    }
+
+    public void changeQuantity(int amount) {
+        this.quantity += amount;
     }
 }
