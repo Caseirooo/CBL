@@ -31,5 +31,17 @@ public class TestMatcher {
             String missingName = missingIngredient.getName();
             System.out.println(missingName);
         }
+
+        ArrayList<RecipeMatchResult> allRecipesMatched = recipeMatcher.matchAllRecipes(pantry, allRecipes);
+        for (RecipeMatchResult matchedResult : allRecipesMatched) {
+            System.out.println(matchedResult.getRecipe().getName());
+            System.out.println("Compatibility of recipe with pantry: " + matchedResult.getPercentage() + "% ");
+            System.out.println("Missing ingredients:");
+            for (Ingredient missingIngredient : matchedResult.getMissingIngredients()){
+                System.out.println(missingIngredient.getName());
+            }
+            System.out.println("");
+
+        }
     }
 }

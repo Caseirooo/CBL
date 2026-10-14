@@ -28,7 +28,8 @@ public class RecipeMatcher {
         return compatibility;
     }
 
-    public  ArrayList<Ingredient> findMissingIngredients(ArrayList<Ingredient> pantry, Recipe recipe) {
+    //finds ingredients which are missing (the recipe has them but the pantry does not)
+    public ArrayList<Ingredient> findMissingIngredients(ArrayList<Ingredient> pantry, Recipe recipe) {
         ArrayList<Ingredient> missingIngredients = new ArrayList<>();
 
         for (Ingredient needed : recipe.getIngredients()) {
@@ -44,6 +45,24 @@ public class RecipeMatcher {
             }
         }
         return missingIngredients;
+    }
+
+    //runs through all recipes and finds compatability and missing ingredients 
+    public ArrayList<RecipeMatchResult> matchAllRecipes(ArrayList<Ingredient> pantry, ArrayList<Recipe> recipes) {
+
+        //where the result is collected
+        ArrayList<RecipeMatchResult> matchedRecipes = new ArrayList<>();
+
+        //goes through each recipe and calculates compatability and finds missing ingredients 
+        for (Recipe recipe : recipes) {
+            int percentage = calculateCompatibility(pantry, recipe);
+            ArrayList<Ingredient> missingIngredients = findMissingIngredients(pantry, recipe);
+            RecipeMatchResult matchedRecipesResult = new RecipeMatchResult(recipe, percentage, missingIngredients);
+
+            matchedRecipes.add(matchedRecipesResult);
+        }
+
+        return matchedRecipes;
     }
 
 }

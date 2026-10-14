@@ -5,9 +5,9 @@ RecipeReader.class
 NewJFrame.class
 Recipe.class
 Pantry.class
-RecipeMatch.class
 PantryPanel.class
 Catalog.class
+RecipeMatchResult.class
 test.class
 IngredientReader.class
 RecipeMatcher.class
