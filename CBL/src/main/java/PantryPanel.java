@@ -7,15 +7,36 @@
  *
  * @author franc
  */
+import java.io.IOException;
+import javax.swing.JOptionPane;
+
 public class PantryPanel extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PantryPanel.class.getName());
 
     /**
      * Creates new form PantryPanel
      */
+    private Catalog catalog;
+    private Pantry pantry;
+
     public PantryPanel() {
         initComponents();
+
+        try {
+            catalog = new IngredientReader().readCatalog();
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Could not read catalog.txt: " + e.getMessage());
+            catalog = new Catalog(new String[0]);
+        }
+
+        pantry = new Pantry(catalog);
+        pantry.load();
+        cmbIngredient.removeAllItems();
+        for (Ingredient ingredient : catalog.getIngredients()) {
+            cmbIngredient.addItem(ingredient.getName());
+        }
+        refreshDisplay();
     }
 
     /**
@@ -28,29 +49,32 @@ public class PantryPanel extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
+        btnRemove = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        txtPantry = new javax.swing.JTextArea();
+        txtQuantity = new javax.swing.JTextField();
+        cmbIngredient = new javax.swing.JComboBox<>();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("ADD");
-        jButton1.addActionListener(this::jButton1ActionPerformed);
+        btnAdd.setText("ADD");
+        btnAdd.addActionListener(this::btnAddActionPerformed);
 
-        jButton3.setText("REMOVE");
-        jButton3.addActionListener(this::jButton3ActionPerformed);
+        btnRemove.setText("REMOVE");
+        btnRemove.addActionListener(this::btnRemoveActionPerformed);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtPantry.setEditable(false);
+        txtPantry.setColumns(20);
+        txtPantry.setRows(5);
+        jScrollPane1.setViewportView(txtPantry);
 
-        jTextField1.setText("INPUT QUANTITY");
-        jTextField1.addActionListener(this::jTextField1ActionPerformed);
+        txtQuantity.addActionListener(this::txtQuantityActionPerformed);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(this::jComboBox1ActionPerformed);
+        cmbIngredient.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbIngredient.addActionListener(this::cmbIngredientActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -61,12 +85,12 @@ public class PantryPanel extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnAdd)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton3))
-                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnRemove))
+                    .addComponent(cmbIngredient, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -75,33 +99,91 @@ public class PantryPanel extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbIngredient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnRemove)
+                    .addComponent(btnAdd)
+                    .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here
+        changeSelected(1);
+    }//GEN-LAST:event_btnAddActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        changeSelected(-1);
+    }//GEN-LAST:event_btnRemoveActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantityActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtQuantityActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void cmbIngredientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbIngredientActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_cmbIngredientActionPerformed
+
+    private void changeSelected(int direction) {
+        String name = (String) cmbIngredient.getSelectedItem();
+        if (name == null) {
+            return;
+        }
+
+        int amount;
+        try {
+            amount = Integer.parseInt(txtQuantity.getText().trim());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Please type a whole number.");
+            return;
+        }
+        if (amount <= 0) {
+            JOptionPane.showMessageDialog(this, "The quantity must be greater than 0.");
+            return;
+        }
+
+        if (direction > 0) {
+            pantry.addIngredient(name, amount);
+        } else if (!pantry.removeIngredient(name, amount)) {
+            JOptionPane.showMessageDialog(this,
+                    "You only have " + pantry.getQuantity(name) + " of " + name + ".");
+            return;
+        }
+
+        txtQuantity.setText("");
+        pantry.save();
+        refreshDisplay();
+    }
+
+    private void refreshDisplay() {
+        StringBuilder text = new StringBuilder();
+
+        for (String category : catalog.getCategories()) {
+            StringBuilder section = new StringBuilder();
+            for (Ingredient ingredient : pantry.getIngredients()) {
+                if (ingredient.getCategory().equals(category) && ingredient.getQuantity() > 0) {
+                    section.append("  ")
+                            .append(ingredient.getName())
+                            .append(": ")
+                            .append(ingredient.getQuantity())
+                            .append("\n");
+                }
+            }
+            if (section.length() > 0) {
+                text.append(category).append("\n").append(section).append("\n");
+            }
+        }
+
+        if (text.length() == 0) {
+            text.append("Your pantry is empty.");
+        }
+        txtPantry.setText(text.toString());
+    }
 
     /**
      * @param args the command line arguments
@@ -129,11 +211,12 @@ public class PantryPanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnRemove;
+    private javax.swing.JComboBox<String> cmbIngredient;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextArea txtPantry;
+    private javax.swing.JTextField txtQuantity;
     // End of variables declaration//GEN-END:variables
 }

@@ -10,7 +10,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -23,11 +22,9 @@ public class IngredientReader {
         ArrayList<String> categoryNames = new ArrayList<>();
         ArrayList<Ingredient> loadedIngredients = new ArrayList<>();
 
-        try (BufferedReader reader =
-                new BufferedReader(new FileReader("catalog.txt"))) {
-
+        try (BufferedReader reader
+                = new BufferedReader(new FileReader("catalog.txt"))) {
             String line;
-
             while ((line = reader.readLine()) != null) {
 
                 String[] parts = line.split(":", 2);
@@ -48,8 +45,8 @@ public class IngredientReader {
                     ingredientName = ingredientName.trim();
 
                     if (!ingredientName.isEmpty()) {
-                        Ingredient ingredient =
-                                new Ingredient(ingredientName, 0, category);
+                        Ingredient ingredient
+                                = new Ingredient(ingredientName, 0, category);
 
                         loadedIngredients.add(ingredient);
                     }

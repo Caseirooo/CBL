@@ -48,7 +48,6 @@ public class Catalog {
                 result.add(ingredient);
             }
         }
-
         return result;
     }
 }
