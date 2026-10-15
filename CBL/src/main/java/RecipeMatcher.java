@@ -1,6 +1,5 @@
-
 import java.util.ArrayList;
-
+import java.util.Collections;
 /**
  * This class calculates the compatibility percentage of the recipe ingredients
  * with the ingredients in the user's pantry
@@ -47,6 +46,7 @@ public class RecipeMatcher {
         return missingIngredients;
     }
 
+    
     //runs through all recipes and finds compatability and missing ingredients 
     public ArrayList<RecipeMatchResult> matchAllRecipes(ArrayList<Ingredient> pantry, ArrayList<Recipe> recipes) {
 
@@ -61,7 +61,10 @@ public class RecipeMatcher {
 
             matchedRecipes.add(matchedRecipesResult);
         }
-
+        
+        //sorts the lost of recipes in the order that is specified in the class RecipeMatchResult
+        Collections.sort(matchedRecipes);
+        
         return matchedRecipes;
     }
 
