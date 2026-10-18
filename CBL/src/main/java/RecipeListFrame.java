@@ -1,17 +1,17 @@
 
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author anast
  */
 public class RecipeListFrame extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RecipeListFrame.class.getName());
 
     /**
@@ -20,10 +20,49 @@ public class RecipeListFrame extends javax.swing.JFrame {
     public RecipeListFrame(ArrayList<Ingredient> pantry) {
         initComponents();
         messageLabel.setText("");
+        if (pantry.isEmpty()) {
+            messageLabel.setText("Your pantry is empty");
+        }
         RecipeReader recipeReader = new RecipeReader();
         ArrayList<Recipe> allRecipes = recipeReader.loadRecipes();
         RecipeMatcher recipeMatcher = new RecipeMatcher();
-         ArrayList<RecipeMatchResult> allRecipesMatched = recipeMatcher.matchAllRecipes(pantry, allRecipes);
+        ArrayList<RecipeMatchResult> allRecipesMatched = recipeMatcher.matchAllRecipes(pantry, allRecipes);
+        DefaultTableModel model = (DefaultTableModel) recipeTable.getModel();
+        for (RecipeMatchResult matchedResult : allRecipesMatched) {
+            model.addRow(new Object[]{
+                matchedResult.getRecipe().getName(),
+                matchedResult.getPercentage() + "%",
+                difficultyToWord(matchedResult.getRecipe().getDifficulty()),
+                matchedResult.getRecipe().getPrepTime() + " min",
+                missingIngredientsToText(matchedResult.getMissingIngredients())
+            });
+        }
+    }
+
+    private String difficultyToWord(int difficulty) {
+        if (difficulty == 1) {
+            return "Easy";
+        } else if (difficulty == 2) {
+            return "Medium";
+        } else {
+            return "Hard";
+        }
+    }
+
+    private String missingIngredientsToText(ArrayList<Ingredient> missingIngredients) {
+        String text = "";
+        for (Ingredient ingredient : missingIngredients) {
+            if (!text.isEmpty()) {
+                text += ", ";
+            }
+            text += ingredient.getName();
+        }
+
+        if (text.isEmpty()) {
+            return "nothing";
+        }
+
+        return text;
     }
 
     /**
@@ -39,9 +78,9 @@ public class RecipeListFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         recipeTable = new javax.swing.JTable();
         messageLabel = new javax.swing.JLabel();
-        closeLabel = new javax.swing.JLabel();
+        closeButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         recipeLabel.setText("Recipes you can cook:");
 
@@ -61,9 +100,15 @@ public class RecipeListFrame extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        recipeTable.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                recipeTableMouseMoved(evt);
+            }
+        });
         jScrollPane1.setViewportView(recipeTable);
 
-        closeLabel.setText("Close");
+        closeButton.setText("Close");
+        closeButton.addActionListener(this::closeButtonActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,7 +120,7 @@ public class RecipeListFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(recipeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(closeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(messageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -88,16 +133,30 @@ public class RecipeListFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(recipeLabel)
-                    .addComponent(closeLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(closeButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(messageLabel)
-                .addContainerGap())
+                .addGap(26, 26, 26))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
+        dispose();
+    }//GEN-LAST:event_closeButtonActionPerformed
+
+    private void recipeTableMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recipeTableMouseMoved
+        int hoveredRow = recipeTable.rowAtPoint(evt.getPoint());
+        int hoveredColumn = recipeTable.columnAtPoint(evt.getPoint());
+
+        if (hoveredRow >= 0 && hoveredColumn >= 0) {
+            Object cellValue = recipeTable.getValueAt(hoveredRow, hoveredColumn);
+            recipeTable.setToolTipText(cellValue.toString());
+        }
+    }//GEN-LAST:event_recipeTableMouseMoved
 
     /**
      * @param args the command line arguments
@@ -121,11 +180,18 @@ public class RecipeListFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new RecipeListFrame().setVisible(true));
+        ArrayList<Ingredient> testPantry = new ArrayList<>();
+        Ingredient eggs = new Ingredient("eggs", 5, "Dairy");
+        Ingredient flour = new Ingredient("flour", 500, "Grains");
+        Ingredient milk = new Ingredient("milk", 1000, "Dairy");
+        testPantry.add(eggs);
+        testPantry.add(flour);
+        testPantry.add(milk);
+        java.awt.EventQueue.invokeLater(() -> new RecipeListFrame(testPantry).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel closeLabel;
+    private javax.swing.JButton closeButton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel messageLabel;
     private javax.swing.JLabel recipeLabel;
