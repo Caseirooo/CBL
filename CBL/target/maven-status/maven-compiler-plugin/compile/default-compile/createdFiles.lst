@@ -3,6 +3,7 @@ RecipeListFrame$2.class
 TestMatcher.class
 CBL.class
 Ingredient.class
+RecipeDetailFrame.class
 RecipeReader.class
 RecipeListFrame$1.class
 NewJFrame.class
@@ -11,6 +12,7 @@ Pantry.class
 PantryPanel.class
 Catalog.class
 RecipeMatchResult.class
+WindowSize.class
 test.class
 IngredientReader.class
 RecipeMatcher.class

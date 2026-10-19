@@ -19,6 +19,8 @@ public class RecipeListFrame extends javax.swing.JFrame {
      */
     public RecipeListFrame(ArrayList<Ingredient> pantry) {
         initComponents();
+        setSize(WindowSize.WIDTH, WindowSize.HEIGHT);
+        setLocationRelativeTo(null);
         messageLabel.setText("");
         if (pantry.isEmpty()) {
             messageLabel.setText("Your pantry is empty");
@@ -32,20 +34,10 @@ public class RecipeListFrame extends javax.swing.JFrame {
             model.addRow(new Object[]{
                 matchedResult.getRecipe().getName(),
                 matchedResult.getPercentage() + "%",
-                difficultyToWord(matchedResult.getRecipe().getDifficulty()),
+                matchedResult.getRecipe().difficultyToWord(),
                 matchedResult.getRecipe().getPrepTime() + " min",
                 missingIngredientsToText(matchedResult.getMissingIngredients())
             });
-        }
-    }
-
-    private String difficultyToWord(int difficulty) {
-        if (difficulty == 1) {
-            return "Easy";
-        } else if (difficulty == 2) {
-            return "Medium";
-        } else {
-            return "Hard";
         }
     }
 
@@ -121,7 +113,7 @@ public class RecipeListFrame extends javax.swing.JFrame {
                         .addComponent(recipeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(messageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -135,8 +127,8 @@ public class RecipeListFrame extends javax.swing.JFrame {
                     .addComponent(recipeLabel)
                     .addComponent(closeButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 527, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(messageLabel)
                 .addGap(26, 26, 26))
         );

@@ -7,7 +7,6 @@ import java.util.ArrayList;
  *
  * @author anast
  */
-
 public class Recipe {
 
     private final String name;
@@ -16,7 +15,7 @@ public class Recipe {
     private final int prepTime; //prep time is in minutes
     private final int difficulty; //difficulty is 1=easy, 2=medium, 3=hard
 
-    public Recipe(String name, int prepTime,  int difficulty, ArrayList<Ingredient> ingredients,
+    public Recipe(String name, int prepTime, int difficulty, ArrayList<Ingredient> ingredients,
             ArrayList<String> instructions) {
         this.name = name;
         this.ingredients = ingredients;
@@ -24,6 +23,7 @@ public class Recipe {
         this.prepTime = prepTime;
         this.difficulty = difficulty;
     }
+
 
     //allows other classes to read private fields 
     public String getName() {
@@ -45,4 +45,17 @@ public class Recipe {
     public int getDifficulty() {
         return difficulty;
     }
+    
+    
+    //turns difficulty number into text (Easy, Medium, Hard)
+     public String difficultyToWord(){
+        if (difficulty == 1) {
+            return "Easy";
+        } else if (difficulty == 2) {
+            return "Medium";
+        } else {
+            return "Hard";
+        }
+    }
+  
 }
