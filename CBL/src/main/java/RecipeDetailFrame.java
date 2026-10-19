@@ -35,7 +35,7 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
 
         String missingIngredientsText = "";
         for (Ingredient missingIngredient : recipeMatchResult.getMissingIngredients()) {
-            missingIngredientsText += missingIngredient.getName() + "\n";
+            missingIngredientsText += missingIngredient.getName() + ": " + missingIngredient.getQuantity() + "\n";
         }
 
         if (missingIngredientsText.isEmpty()) {
@@ -72,6 +72,7 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         instructionsTextArea = new javax.swing.JTextArea();
         finishedRecipeButton = new javax.swing.JButton();
+        unitsLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -111,6 +112,9 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
 
         finishedRecipeButton.setText("Finished recipe");
 
+        unitsLabel.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        unitsLabel.setText("Amounts: solids in grams (g), liquids in millilitres (ml), everything else in pieces");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -119,11 +123,7 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(instructionsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
                             .addComponent(infoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -141,7 +141,14 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
                                     .addComponent(missingIngredientsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(instructionsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(unitsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,9 +168,11 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(instructionsLabel)
+                .addComponent(unitsLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE)
+                .addComponent(instructionsLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(finishedRecipeButton)
                 .addContainerGap())
@@ -199,7 +208,7 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
 
         /* Create and display the form */
          ArrayList<Ingredient> testPantry = new ArrayList<>();
-        Ingredient eggs = new Ingredient("eggs", 5, "Dairy");
+        Ingredient eggs = new Ingredient("eggs", 1, "Dairy");
         Ingredient flour = new Ingredient("flour", 500, "Grains");
         Ingredient milk = new Ingredient("milk", 1000, "Dairy");
         testPantry.add(eggs);
@@ -228,5 +237,6 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
     private javax.swing.JLabel missingIngredientsLabel;
     private javax.swing.JTextArea missingIngredientsTextArea;
     private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel unitsLabel;
     // End of variables declaration//GEN-END:variables
 }

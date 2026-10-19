@@ -1,5 +1,7 @@
+
 import java.util.ArrayList;
 import java.util.Collections;
+
 /**
  * This class calculates the compatibility percentage of the recipe ingredients
  * with the ingredients in the user's pantry
@@ -27,26 +29,25 @@ public class RecipeMatcher {
         return compatibility;
     }
 
-    //finds ingredients which are missing (the recipe has them but the pantry does not)
+    //finds which ingredients are missing and how much of each is still needed
     public ArrayList<Ingredient> findMissingIngredients(ArrayList<Ingredient> pantry, Recipe recipe) {
         ArrayList<Ingredient> missingIngredients = new ArrayList<>();
 
         for (Ingredient needed : recipe.getIngredients()) {
-            boolean found = false;
+            int quantityInPantry = 0;
             for (Ingredient userHas : pantry) {
-                if (userHas.getName().equalsIgnoreCase(needed.getName())
-                        && userHas.getQuantity() >= needed.getQuantity()) {
-                    found = true;
+                if (userHas.getName().equalsIgnoreCase(needed.getName())) {
+                    quantityInPantry = userHas.getQuantity();
                 }
             }
-            if (!found) {
-                missingIngredients.add(needed);
+            int quantityStillNeeded = needed.getQuantity() - quantityInPantry;
+            if (quantityStillNeeded > 0) {
+                missingIngredients.add(new Ingredient(needed.getName(), quantityStillNeeded, needed.getCategory()));
             }
         }
         return missingIngredients;
     }
 
-    
     //runs through all recipes and finds compatability and missing ingredients 
     public ArrayList<RecipeMatchResult> matchAllRecipes(ArrayList<Ingredient> pantry, ArrayList<Recipe> recipes) {
 
@@ -61,10 +62,10 @@ public class RecipeMatcher {
 
             matchedRecipes.add(matchedRecipesResult);
         }
-        
+
         //sorts the lost of recipes in the order that is specified in the class RecipeMatchResult
         Collections.sort(matchedRecipes);
-        
+
         return matchedRecipes;
     }
 
