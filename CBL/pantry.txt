@@ -1,5 +1,6 @@
-Eggs:6
+Eggs:7
 Yogurt:3
 Milk:1
 Butter:1
 Feta:1
+Sugar:6
