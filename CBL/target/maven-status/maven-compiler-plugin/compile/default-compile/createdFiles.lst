@@ -16,4 +16,5 @@ WindowSize.class
 test.class
 IngredientReader.class
 RecipeMatcher.class
+RecipeListFrame$3.class
 TestReader.class

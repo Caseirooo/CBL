@@ -22,7 +22,7 @@ public class RecipeReader {
 
             while (reader.hasNextLine()) {
                 String line = reader.nextLine();
-                
+
                 // handles each line separately, so one broken line is skipped instead of stopping the whole file.
                 try {
                     //splits each recipe into: name, time, difficulty, ingredients, and steps 

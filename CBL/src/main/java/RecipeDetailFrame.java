@@ -1,7 +1,6 @@
 
 import java.util.ArrayList;
 
-
 /**
  *
  * @author anast
@@ -207,7 +206,7 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-         ArrayList<Ingredient> testPantry = new ArrayList<>();
+        ArrayList<Ingredient> testPantry = new ArrayList<>();
         Ingredient eggs = new Ingredient("eggs", 1, "Dairy");
         Ingredient flour = new Ingredient("flour", 500, "Grains");
         Ingredient milk = new Ingredient("milk", 1000, "Dairy");
@@ -218,8 +217,7 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
         ArrayList<Recipe> recipe = reader.loadRecipes();
         RecipeMatcher matcher = new RecipeMatcher();
         ArrayList<RecipeMatchResult> results = matcher.matchAllRecipes(testPantry, recipe);
-        
-        
+
         java.awt.EventQueue.invokeLater(() -> new RecipeDetailFrame(results.get(0)).setVisible(true));
     }
 

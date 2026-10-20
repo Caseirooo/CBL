@@ -24,7 +24,6 @@ public class Recipe {
         this.difficulty = difficulty;
     }
 
-
     //allows other classes to read private fields 
     public String getName() {
         return name;
@@ -45,10 +44,9 @@ public class Recipe {
     public int getDifficulty() {
         return difficulty;
     }
-    
-    
+
     //turns difficulty number into text (Easy, Medium, Hard)
-     public String difficultyToWord(){
+    public String difficultyToWord() {
         if (difficulty == 1) {
             return "Easy";
         } else if (difficulty == 2) {
@@ -57,5 +55,5 @@ public class Recipe {
             return "Hard";
         }
     }
-  
+
 }

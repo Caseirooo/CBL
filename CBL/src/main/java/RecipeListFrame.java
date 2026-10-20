@@ -14,6 +14,8 @@ public class RecipeListFrame extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RecipeListFrame.class.getName());
 
+    private ArrayList<RecipeMatchResult> allRecipesMatched;
+
     /**
      * Creates new form RecipeListFrame
      */
@@ -28,7 +30,7 @@ public class RecipeListFrame extends javax.swing.JFrame {
         RecipeReader recipeReader = new RecipeReader();
         ArrayList<Recipe> allRecipes = recipeReader.loadRecipes();
         RecipeMatcher recipeMatcher = new RecipeMatcher();
-        ArrayList<RecipeMatchResult> allRecipesMatched = recipeMatcher.matchAllRecipes(pantry, allRecipes);
+        allRecipesMatched = recipeMatcher.matchAllRecipes(pantry, allRecipes);
         DefaultTableModel model = (DefaultTableModel) recipeTable.getModel();
         for (RecipeMatchResult matchedResult : allRecipesMatched) {
             model.addRow(new Object[]{
@@ -97,6 +99,11 @@ public class RecipeListFrame extends javax.swing.JFrame {
                 recipeTableMouseMoved(evt);
             }
         });
+        recipeTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                recipeTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(recipeTable);
 
         closeButton.setText("Close");
@@ -149,6 +156,15 @@ public class RecipeListFrame extends javax.swing.JFrame {
             recipeTable.setToolTipText(cellValue.toString());
         }
     }//GEN-LAST:event_recipeTableMouseMoved
+
+    private void recipeTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recipeTableMouseClicked
+        int clickedRow = recipeTable.rowAtPoint(evt.getPoint());
+
+        if (clickedRow >= 0) {
+            RecipeMatchResult clickedResult = allRecipesMatched.get(clickedRow);
+            new RecipeDetailFrame(clickedResult).setVisible(true);
+        }
+    }//GEN-LAST:event_recipeTableMouseClicked
 
     /**
      * @param args the command line arguments
