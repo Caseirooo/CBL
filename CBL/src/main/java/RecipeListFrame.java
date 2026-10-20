@@ -21,6 +21,7 @@ public class RecipeListFrame extends javax.swing.JFrame {
      */
     public RecipeListFrame(ArrayList<Ingredient> pantry) {
         initComponents();
+        applyColors();
         setSize(WindowSize.WIDTH, WindowSize.HEIGHT);
         setLocationRelativeTo(null);
         messageLabel.setText("");
@@ -42,6 +43,22 @@ public class RecipeListFrame extends javax.swing.JFrame {
             });
         }
     }
+    private void applyColors() {
+        getContentPane().setBackground(AppStyle.CREAM);
+        recipeLabel.setForeground(AppStyle.TERRACOTTA);
+        messageLabel.setForeground(AppStyle.LIGHT_GREEN);
+        closeButton.setBackground(AppStyle.YELLOW);
+        closeButton.setForeground(AppStyle.DARK_GREEN);
+        recipeTable.setBackground(AppStyle.LIGHT_GREEN);
+        recipeTable.setForeground(AppStyle.BROWN);
+        recipeTable.setSelectionBackground(AppStyle.YELLOW);
+        recipeTable.setSelectionForeground(AppStyle.BROWN);
+        jScrollPane1.getViewport().setBackground(AppStyle.LIGHT_GREEN);
+        recipeTable.getTableHeader().setForeground(AppStyle.DARK_GREEN);
+        recipeTable.getTableHeader().setBackground(AppStyle.CREAM);
+        
+        
+    }
 
     private String missingIngredientsToText(ArrayList<Ingredient> missingIngredients) {
         String text = "";
@@ -58,6 +75,9 @@ public class RecipeListFrame extends javax.swing.JFrame {
 
         return text;
     }
+   
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
