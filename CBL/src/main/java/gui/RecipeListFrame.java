@@ -21,7 +21,7 @@ import model.Pantry;
  *
  * @author anast
  */
-public class RecipeListFrame extends javax.swing.JFrame {
+public class RecipeListFrame extends    javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RecipeListFrame.class.getName());
 
@@ -138,7 +138,7 @@ public class RecipeListFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(recipeTable);
 
-        closeButton.setText("Close");
+        closeButton.setText("Back to Pantry");
         closeButton.addActionListener(this::closeButtonActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -150,8 +150,8 @@ public class RecipeListFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(recipeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(closeButton))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(messageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -176,6 +176,7 @@ public class RecipeListFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
+        new PantryPanel().setVisible(true);
         dispose();
     }//GEN-LAST:event_closeButtonActionPerformed
 
@@ -195,6 +196,7 @@ public class RecipeListFrame extends javax.swing.JFrame {
         if (clickedRow >= 0) {
             RecipeMatchResult clickedResult = allRecipesMatched.get(clickedRow);
             new RecipeDetailFrame(clickedResult, pantry).setVisible(true);
+            dispose();
         }
     }//GEN-LAST:event_recipeTableMouseClicked
 

@@ -10,6 +10,6 @@ package style;
  * @author anast
  */
 public class WindowSize {
-    public static final int WIDTH = 800;
+    public static final int WIDTH = 820;
     public static final int HEIGHT = 600;
 }
