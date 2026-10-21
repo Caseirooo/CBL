@@ -9,7 +9,6 @@ Ingredient.class
 RecipeDetailFrame.class
 RecipeReader.class
 RecipeListFrame$1.class
-NewJFrame.class
 Recipe.class
 Pantry.class
 PantryPanel.class
