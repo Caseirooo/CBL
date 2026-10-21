@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 model\Catalog.class
 style\AppStyle.class
 model\RecipeMatchResult.class
+=======
+RecipeListFrame.class
+RecipeListFrame$2.class
+>>>>>>> dfccc1c4cde389328dbb44fe8dd4283e25a7a454
 TestMatcher.class
 CBL.class
 model\Recipe.class
