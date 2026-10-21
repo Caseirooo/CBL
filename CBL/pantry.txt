@@ -4,3 +4,4 @@ Milk:1
 Butter:1
 Feta:1
 Sugar:6
+Curry Powder:6
