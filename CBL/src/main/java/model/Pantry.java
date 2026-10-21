@@ -4,13 +4,11 @@ package model;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 /**
  *
  * @author franc
  */
-import model.Catalog;
-import model.Ingredient;
+
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.File;
@@ -19,7 +17,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class Pantry {    
+public class Pantry {
+
     private static final String FILE_NAME = "pantry.txt";
     private Catalog catalog;
     private ArrayList<Ingredient> ingredients;
@@ -104,11 +103,23 @@ public class Pantry {
     public Catalog getCatalog() {
         return catalog;
     }
-    
-            public void load() {
+
+    public boolean useUp(java.util.List<Ingredient> needed) {
+        for (Ingredient item : needed) {
+            if (getQuantity(item.getName()) < item.getQuantity()) {
+                return false;
+            }
+        }
+        for (Ingredient item : needed) {
+            removeIngredient(item.getName(), item.getQuantity());
+        }
+        save();
+        return true;
+    }
+    public void load() {
         File file = new File(FILE_NAME);
         if (!file.exists()) {
-            return; // first run, nothing saved yet
+            return;
         }
 
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
@@ -121,7 +132,6 @@ public class Pantry {
                 try {
                     addIngredient(parts[0].trim(), Integer.parseInt(parts[1].trim()));
                 } catch (NumberFormatException e) {
-                    // skip a damaged line
                 }
             }
         } catch (IOException e) {

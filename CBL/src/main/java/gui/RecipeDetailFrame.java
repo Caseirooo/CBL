@@ -1,6 +1,5 @@
 package gui;
 
-
 import style.WindowSize;
 import gui.PantryPanel;
 import files.RecipeReader;
@@ -8,7 +7,10 @@ import logic.RecipeMatcher;
 import model.RecipeMatchResult;
 import model.Recipe;
 import model.Ingredient;
+import model.Pantry;
+import model.Catalog;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,15 +22,19 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
 
     private final RecipeMatchResult recipeMatchResult;
 
+    private Recipe recipe;
+    private Pantry pantry;
+    
     /**
      * Creates new form RecipeDetailFrame
      */
-    public RecipeDetailFrame(RecipeMatchResult recipeMatchResult) {
+    public RecipeDetailFrame(RecipeMatchResult recipeMatchResult, Pantry pantry) {
         initComponents();
         setSize(WindowSize.WIDTH, WindowSize.HEIGHT);
         setLocationRelativeTo(null);
         this.recipeMatchResult = recipeMatchResult;
-        Recipe recipe = recipeMatchResult.getRecipe();
+        this.pantry = pantry;
+        recipe = recipeMatchResult.getRecipe();
         nameLabel.setText(recipe.getName());
         infoLabel.setText(recipe.difficultyToWord() + " · "
                 + recipe.getPrepTime() + " min" + " · "
@@ -195,9 +201,14 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
 
     private void finishedRecipeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishedRecipeButtonActionPerformed
 
-        PantryPanel next = new PantryPanel();
-        next.setVisible(true);
-        this.dispose();
+        if (pantry.useUp(recipe.getIngredients())) {
+            pantry.save();
+            PantryPanel next = new PantryPanel();
+            next.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "You don't have all the ingredients.");
+        }
     }//GEN-LAST:event_finishedRecipeButtonActionPerformed
 
     /**
@@ -234,7 +245,8 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
         RecipeMatcher matcher = new RecipeMatcher();
         ArrayList<RecipeMatchResult> results = matcher.matchAllRecipes(testPantry, recipe);
 
-        java.awt.EventQueue.invokeLater(() -> new RecipeDetailFrame(results.get(0)).setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new PantryPanel().setVisible(true));
+        //java.awt.EventQueue.invokeLater(() -> new RecipeDetailFrame(results.get(0)).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

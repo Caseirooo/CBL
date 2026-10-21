@@ -6,7 +6,5 @@ Feta:8
 Sugar:6
 Curry Powder:6
 Pasta:1000
-Honey:1000
-Apple:1000
-Banana:2
-Orange:2
+Honey:970
+Apple:996

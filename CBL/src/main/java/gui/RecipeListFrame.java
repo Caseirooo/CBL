@@ -11,6 +11,7 @@ import model.Recipe;
 import model.Ingredient;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import model.Pantry;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -25,23 +26,24 @@ public class RecipeListFrame extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RecipeListFrame.class.getName());
 
     private ArrayList<RecipeMatchResult> allRecipesMatched;
-
+    private Pantry pantry;
     /**
      * Creates new form RecipeListFrame
      */
-    public RecipeListFrame(ArrayList<Ingredient> pantry) {
+    public RecipeListFrame(ArrayList<Ingredient> ingredients, Pantry pantry) {
         initComponents();
+        this.pantry = pantry;
         applyColors();
         setSize(WindowSize.WIDTH, WindowSize.HEIGHT);
         setLocationRelativeTo(null);
         messageLabel.setText("");
-        if (pantry.isEmpty()) {
+        if (ingredients.isEmpty()) {
             messageLabel.setText("Your pantry is empty");
         }
         RecipeReader recipeReader = new RecipeReader();
         ArrayList<Recipe> allRecipes = recipeReader.loadRecipes();
         RecipeMatcher recipeMatcher = new RecipeMatcher();
-        allRecipesMatched = recipeMatcher.matchAllRecipes(pantry, allRecipes);
+        allRecipesMatched = recipeMatcher.matchAllRecipes(ingredients, allRecipes);
         DefaultTableModel model = (DefaultTableModel) recipeTable.getModel();
         for (RecipeMatchResult matchedResult : allRecipesMatched) {
             model.addRow(new Object[]{
@@ -192,7 +194,7 @@ public class RecipeListFrame extends javax.swing.JFrame {
 
         if (clickedRow >= 0) {
             RecipeMatchResult clickedResult = allRecipesMatched.get(clickedRow);
-            new RecipeDetailFrame(clickedResult).setVisible(true);
+            new RecipeDetailFrame(clickedResult, pantry).setVisible(true);
         }
     }//GEN-LAST:event_recipeTableMouseClicked
 
@@ -225,7 +227,8 @@ public class RecipeListFrame extends javax.swing.JFrame {
         testPantry.add(eggs);
         testPantry.add(flour);
         testPantry.add(milk);
-        java.awt.EventQueue.invokeLater(() -> new RecipeListFrame(testPantry).setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new PantryPanel().setVisible(true));
+//        java.awt.EventQueue.invokeLater(() -> new RecipeListFrame(testPantry).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

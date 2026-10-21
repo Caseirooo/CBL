@@ -1,24 +1,19 @@
-<<<<<<< HEAD
 model\Catalog.class
 style\AppStyle.class
-model\RecipeMatchResult.class
-=======
-RecipeListFrame.class
-RecipeListFrame$2.class
->>>>>>> dfccc1c4cde389328dbb44fe8dd4283e25a7a454
 TestMatcher.class
-CBL.class
 model\Recipe.class
-gui\RecipeListFrame$3.class
 model\Pantry.class
 model\Ingredient.class
-style\WindowSize.class
 logic\RecipeMatcher.class
 gui\RecipeListFrame$2.class
-files\IngredientReader.class
-gui\RecipeListFrame$1.class
 files\RecipeReader.class
 gui\RecipeDetailFrame.class
+model\RecipeMatchResult.class
+CBL.class
+gui\RecipeListFrame$3.class
+style\WindowSize.class
+files\IngredientReader.class
+gui\RecipeListFrame$1.class
 gui\PantryPanel.class
 gui\RecipeListFrame.class
 TestReader.class

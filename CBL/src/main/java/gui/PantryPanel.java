@@ -4,7 +4,6 @@ package gui;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author franc
@@ -135,28 +134,29 @@ public class PantryPanel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // TODO add your handling code here
         changeSelected(1);
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
-        // TODO add your handling code here:
         changeSelected(-1);
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void txtQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantityActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txtQuantityActionPerformed
 
     private void cmbIngredientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbIngredientActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_cmbIngredientActionPerformed
 
     private void StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartActionPerformed
-        RecipeListFrame next = new RecipeListFrame(pantry.getIngredients());
+        RecipeListFrame next = new RecipeListFrame(pantry.getIngredients(), pantry);
         next.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_StartActionPerformed
+    public Pantry getPantry() {
+        return pantry;
+    }
 
     private void changeSelected(int direction) {
         String name = (String) cmbIngredient.getSelectedItem();
