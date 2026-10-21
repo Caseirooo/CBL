@@ -12,6 +12,7 @@ import files.IngredientReader;
 import model.Pantry;
 import model.Catalog;
 import model.Ingredient;
+import model.PantryStorage;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import java.util.Arrays;
@@ -25,6 +26,7 @@ public class PantryPanel extends javax.swing.JFrame {
      */
     private Catalog catalog;
     private Pantry pantry;
+    private PantryStorage pantryS;
 
     public PantryPanel() {
         initComponents();
@@ -37,7 +39,8 @@ public class PantryPanel extends javax.swing.JFrame {
         }
 
         pantry = new Pantry(catalog);
-        pantry.load();
+        pantryS = new PantryStorage(pantry);
+        pantryS.load();
         cmbIngredient.removeAllItems();
         for (Ingredient ingredient : catalog.getIngredients()) {
             cmbIngredient.addItem(ingredient.getName());
@@ -182,7 +185,7 @@ public class PantryPanel extends javax.swing.JFrame {
             return;
         }
         txtQuantity.setText("");
-        pantry.save();
+        pantryS.save();
         refreshDisplay();
     }
 

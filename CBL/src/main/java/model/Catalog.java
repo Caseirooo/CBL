@@ -9,7 +9,6 @@ package model;
  *
  * @author franc
  */
-import model.Ingredient;
 import java.util.ArrayList;
 
 public class Catalog {

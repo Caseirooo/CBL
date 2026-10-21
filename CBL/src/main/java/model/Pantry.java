@@ -10,16 +10,10 @@ package model;
  */
 
 import java.util.ArrayList;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 
 public class Pantry {
 
-    private static final String FILE_NAME = "pantry.txt";
+    private PantryStorage pantryS;
     private Catalog catalog;
     private ArrayList<Ingredient> ingredients;
 
@@ -113,39 +107,7 @@ public class Pantry {
         for (Ingredient item : needed) {
             removeIngredient(item.getName(), item.getQuantity());
         }
-        save();
+        pantryS.save();
         return true;
-    }
-    public void load() {
-        File file = new File(FILE_NAME);
-        if (!file.exists()) {
-            return;
-        }
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(":", 2);
-                if (parts.length != 2) {
-                    continue;
-                }
-                try {
-                    addIngredient(parts[0].trim(), Integer.parseInt(parts[1].trim()));
-                } catch (NumberFormatException e) {
-                }
-            }
-        } catch (IOException e) {
-            System.err.println("Could not load " + FILE_NAME + ": " + e.getMessage());
-        }
-    }
-
-    public void save() {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(FILE_NAME))) {
-            for (Ingredient ingredient : ingredients) {
-                writer.println(ingredient.getName() + ":" + ingredient.getQuantity());
-            }
-        } catch (IOException e) {
-            System.err.println("Could not save " + FILE_NAME + ": " + e.getMessage());
-        }
     }
 }

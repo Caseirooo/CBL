@@ -6,6 +6,7 @@ model\Pantry.class
 model\Ingredient.class
 logic\RecipeMatcher.class
 gui\RecipeListFrame$2.class
+model\PantryStorage.class
 files\RecipeReader.class
 gui\RecipeDetailFrame.class
 model\RecipeMatchResult.class

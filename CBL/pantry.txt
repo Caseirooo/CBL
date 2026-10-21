@@ -1,4 +1,4 @@
-Eggs:7
+Eggs:12
 Yogurt:3
 Milk:1
 Butter:6

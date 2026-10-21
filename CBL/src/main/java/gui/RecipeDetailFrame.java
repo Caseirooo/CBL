@@ -8,6 +8,7 @@ import model.RecipeMatchResult;
 import model.Recipe;
 import model.Ingredient;
 import model.Pantry;
+import model.PantryStorage;
 import model.Catalog;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -24,6 +25,7 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
 
     private Recipe recipe;
     private Pantry pantry;
+    private PantryStorage pantryS;
     
     /**
      * Creates new form RecipeDetailFrame
@@ -202,7 +204,7 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
     private void finishedRecipeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishedRecipeButtonActionPerformed
 
         if (pantry.useUp(recipe.getIngredients())) {
-            pantry.save();
+            pantryS.save();
             PantryPanel next = new PantryPanel();
             next.setVisible(true);
             this.dispose();
