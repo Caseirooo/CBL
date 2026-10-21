@@ -1,5 +1,5 @@
 /**
- *
+ * This tests whether removing and adding works
  * @author franc
  */
 import org.junit.jupiter.api.BeforeEach;

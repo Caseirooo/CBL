@@ -1,12 +1,7 @@
 package files;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 /**
- *
+ * The catalog text file is translated into individual ingredients divided by categories
  * @author franc
  */
 import model.Catalog;

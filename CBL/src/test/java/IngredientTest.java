@@ -1,5 +1,5 @@
 /**
- *
+ * This tests whether the ingredients get assigned the correct characteristics
  * @author franc
  */
 import org.junit.jupiter.api.Test;

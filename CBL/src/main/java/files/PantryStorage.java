@@ -1,5 +1,9 @@
 package files;
 
+/**
+ * This handles saving and loading the user's pantry
+ * @author franc
+ */
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -9,10 +13,6 @@ import java.io.PrintWriter;
 import model.Ingredient;
 import model.Pantry;
 
-/**
- * This handles saving and loading the user's pantry
- * @author franc
- */
 public class PantryStorage {
 
     private Pantry pantry;
