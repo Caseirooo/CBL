@@ -1,11 +1,16 @@
 model\Catalog.class
 style\AppStyle.class
+model\RecipeMatchResult.class
 TestMatcher.class
+CBL.class
 model\Recipe.class
+gui\RecipeListFrame$3.class
 model\Pantry.class
 model\Ingredient.class
+style\WindowSize.class
 logic\RecipeMatcher.class
 gui\RecipeListFrame$2.class
+<<<<<<< Updated upstream
 model\PantryStorage.class
 files\RecipeReader.class
 gui\RecipeDetailFrame.class
@@ -13,8 +18,12 @@ model\RecipeMatchResult.class
 CBL.class
 gui\RecipeListFrame$3.class
 style\WindowSize.class
+=======
+>>>>>>> Stashed changes
 files\IngredientReader.class
 gui\RecipeListFrame$1.class
+files\RecipeReader.class
+gui\RecipeDetailFrame.class
 gui\PantryPanel.class
 gui\RecipeListFrame.class
 TestReader.class
