@@ -9,6 +9,7 @@
  */
 import java.io.IOException;
 import javax.swing.JOptionPane;
+import java.util.Arrays;
 
 public class PantryPanel extends javax.swing.JFrame {
 
@@ -55,6 +56,9 @@ public class PantryPanel extends javax.swing.JFrame {
         txtPantry = new javax.swing.JTextArea();
         txtQuantity = new javax.swing.JTextField();
         cmbIngredient = new javax.swing.JComboBox<>();
+        Start = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        INFO = new javax.swing.JTextPane();
 
         jButton1.setText("jButton1");
 
@@ -76,6 +80,13 @@ public class PantryPanel extends javax.swing.JFrame {
         cmbIngredient.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbIngredient.addActionListener(this::cmbIngredientActionPerformed);
 
+        Start.setText("START COOKING");
+        Start.addActionListener(this::StartActionPerformed);
+
+        INFO.setEditable(false);
+        INFO.setText("Amounts: solids in grams (g), liquids in millilitres (ml), everything else in pieces");
+        jScrollPane2.setViewportView(INFO);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -83,29 +94,35 @@ public class PantryPanel extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cmbIngredient, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Start, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAdd)
                         .addGap(18, 18, 18)
                         .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnRemove))
-                    .addComponent(cmbIngredient, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnRemove, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Start)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cmbIngredient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRemove)
+                    .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdd)
-                    .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18))
+                    .addComponent(btnRemove))
+                .addContainerGap())
         );
 
         pack();
@@ -129,12 +146,17 @@ public class PantryPanel extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbIngredientActionPerformed
 
+    private void StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartActionPerformed
+        RecipeListFrame next = new RecipeListFrame(pantry.getIngredients());
+        next.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_StartActionPerformed
+
     private void changeSelected(int direction) {
         String name = (String) cmbIngredient.getSelectedItem();
         if (name == null) {
             return;
         }
-
         int amount;
         try {
             amount = Integer.parseInt(txtQuantity.getText().trim());
@@ -146,7 +168,6 @@ public class PantryPanel extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "The quantity must be greater than 0.");
             return;
         }
-
         if (direction > 0) {
             pantry.addIngredient(name, amount);
         } else if (!pantry.removeIngredient(name, amount)) {
@@ -154,18 +175,25 @@ public class PantryPanel extends javax.swing.JFrame {
                     "You only have " + pantry.getQuantity(name) + " of " + name + ".");
             return;
         }
-
         txtQuantity.setText("");
         pantry.save();
         refreshDisplay();
     }
 
     private void refreshDisplay() {
+        // ingredients sorted A-Z by name
+        java.util.ArrayList<Ingredient> sorted = pantry.getIngredients();
+        sorted.sort((a, b) -> a.getName().compareToIgnoreCase(b.getName()));
+
+        // categories sorted A-Z (on a copy, so the catalog isn't reordered)
+        String[] categories = Arrays.copyOf(catalog.getCategories(), catalog.getCategories().length);
+        Arrays.sort(categories);
+
         StringBuilder text = new StringBuilder();
 
-        for (String category : catalog.getCategories()) {
+        for (String category : categories) {
             StringBuilder section = new StringBuilder();
-            for (Ingredient ingredient : pantry.getIngredients()) {
+            for (Ingredient ingredient : sorted) {
                 if (ingredient.getCategory().equals(category) && ingredient.getQuantity() > 0) {
                     section.append("  ")
                             .append(ingredient.getName())
@@ -211,11 +239,14 @@ public class PantryPanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextPane INFO;
+    private javax.swing.JButton Start;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnRemove;
     private javax.swing.JComboBox<String> cmbIngredient;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea txtPantry;
     private javax.swing.JTextField txtQuantity;
     // End of variables declaration//GEN-END:variables
