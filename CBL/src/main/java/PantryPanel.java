@@ -8,8 +8,8 @@
  * @author franc
  */
 import java.io.IOException;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import java.util.Arrays;
 
 public class PantryPanel extends javax.swing.JFrame {
 
@@ -181,11 +181,19 @@ public class PantryPanel extends javax.swing.JFrame {
     }
 
     private void refreshDisplay() {
+        // ingredients sorted A-Z by name
+        java.util.ArrayList<Ingredient> sorted = pantry.getIngredients();
+        sorted.sort((a, b) -> a.getName().compareToIgnoreCase(b.getName()));
+
+        // categories sorted A-Z (on a copy, so the catalog isn't reordered)
+        String[] categories = Arrays.copyOf(catalog.getCategories(), catalog.getCategories().length);
+        Arrays.sort(categories);
+
         StringBuilder text = new StringBuilder();
 
-        for (String category : catalog.getCategories()) {
+        for (String category : categories) {
             StringBuilder section = new StringBuilder();
-            for (Ingredient ingredient : pantry.getIngredients()) {
+            for (Ingredient ingredient : sorted) {
                 if (ingredient.getCategory().equals(category) && ingredient.getQuantity() > 0) {
                     section.append("  ")
                             .append(ingredient.getName())

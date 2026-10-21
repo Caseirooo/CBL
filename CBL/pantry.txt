@@ -4,3 +4,6 @@ Milk:1
 Butter:1
 Feta:8
 Sugar:6
+Pasta:1000
+Honey:1000
+Apple:1000
