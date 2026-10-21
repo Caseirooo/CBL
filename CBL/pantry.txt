@@ -1,10 +1,11 @@
-Eggs:12
+Eggs:17
 Yogurt:3
-Milk:1
-Butter:6
+Milk:1001
+Butter:806
 Feta:8
-Sugar:6
+Sugar:706
 Curry Powder:6
 Pasta:1000
 Honey:970
 Apple:996
+Flour:900

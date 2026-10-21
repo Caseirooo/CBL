@@ -10,18 +10,9 @@ model\Ingredient.class
 style\WindowSize.class
 logic\RecipeMatcher.class
 gui\RecipeListFrame$2.class
-<<<<<<< Updated upstream
-model\PantryStorage.class
-files\RecipeReader.class
-gui\RecipeDetailFrame.class
-model\RecipeMatchResult.class
-CBL.class
-gui\RecipeListFrame$3.class
-style\WindowSize.class
-=======
->>>>>>> Stashed changes
 files\IngredientReader.class
 gui\RecipeListFrame$1.class
+model\PantryStorage.class
 files\RecipeReader.class
 gui\RecipeDetailFrame.class
 gui\PantryPanel.class

@@ -1,22 +1,3 @@
-<<<<<<< Updated upstream
-C:\Users\franc\Documents\CBL\CBL\src\main\java\CBL.java
-C:\Users\franc\Documents\CBL\CBL\src\main\java\files\IngredientReader.java
-C:\Users\franc\Documents\CBL\CBL\src\main\java\files\RecipeReader.java
-C:\Users\franc\Documents\CBL\CBL\src\main\java\gui\PantryPanel.java
-C:\Users\franc\Documents\CBL\CBL\src\main\java\gui\RecipeDetailFrame.java
-C:\Users\franc\Documents\CBL\CBL\src\main\java\gui\RecipeListFrame.java
-C:\Users\franc\Documents\CBL\CBL\src\main\java\logic\RecipeMatcher.java
-C:\Users\franc\Documents\CBL\CBL\src\main\java\model\Catalog.java
-C:\Users\franc\Documents\CBL\CBL\src\main\java\model\Ingredient.java
-C:\Users\franc\Documents\CBL\CBL\src\main\java\model\Pantry.java
-C:\Users\franc\Documents\CBL\CBL\src\main\java\model\PantryStorage.java
-C:\Users\franc\Documents\CBL\CBL\src\main\java\model\Recipe.java
-C:\Users\franc\Documents\CBL\CBL\src\main\java\model\RecipeMatchResult.java
-C:\Users\franc\Documents\CBL\CBL\src\main\java\style\AppStyle.java
-C:\Users\franc\Documents\CBL\CBL\src\main\java\style\WindowSize.java
-C:\Users\franc\Documents\CBL\CBL\src\main\java\TestMatcher.java
-C:\Users\franc\Documents\CBL\CBL\src\main\java\TestReader.java
-=======
 C:\Users\anast\OneDrive\Documents\GitHub\CBL\CBL\src\main\java\CBL.java
 C:\Users\anast\OneDrive\Documents\GitHub\CBL\CBL\src\main\java\files\IngredientReader.java
 C:\Users\anast\OneDrive\Documents\GitHub\CBL\CBL\src\main\java\files\RecipeReader.java
@@ -27,10 +8,10 @@ C:\Users\anast\OneDrive\Documents\GitHub\CBL\CBL\src\main\java\logic\RecipeMatch
 C:\Users\anast\OneDrive\Documents\GitHub\CBL\CBL\src\main\java\model\Catalog.java
 C:\Users\anast\OneDrive\Documents\GitHub\CBL\CBL\src\main\java\model\Ingredient.java
 C:\Users\anast\OneDrive\Documents\GitHub\CBL\CBL\src\main\java\model\Pantry.java
+C:\Users\anast\OneDrive\Documents\GitHub\CBL\CBL\src\main\java\model\PantryStorage.java
 C:\Users\anast\OneDrive\Documents\GitHub\CBL\CBL\src\main\java\model\Recipe.java
 C:\Users\anast\OneDrive\Documents\GitHub\CBL\CBL\src\main\java\model\RecipeMatchResult.java
 C:\Users\anast\OneDrive\Documents\GitHub\CBL\CBL\src\main\java\style\AppStyle.java
 C:\Users\anast\OneDrive\Documents\GitHub\CBL\CBL\src\main\java\style\WindowSize.java
 C:\Users\anast\OneDrive\Documents\GitHub\CBL\CBL\src\main\java\TestMatcher.java
 C:\Users\anast\OneDrive\Documents\GitHub\CBL\CBL\src\main\java\TestReader.java
->>>>>>> Stashed changes
