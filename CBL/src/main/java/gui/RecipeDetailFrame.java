@@ -1,4 +1,13 @@
+package gui;
 
+
+import style.WindowSize;
+import gui.PantryPanel;
+import files.RecipeReader;
+import logic.RecipeMatcher;
+import model.RecipeMatchResult;
+import model.Recipe;
+import model.Ingredient;
 import java.util.ArrayList;
 
 /**

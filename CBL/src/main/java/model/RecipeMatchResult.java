@@ -1,4 +1,8 @@
+package model;
 
+
+import model.Recipe;
+import model.Ingredient;
 import java.util.ArrayList;
 
 /**

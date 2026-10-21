@@ -1,13 +1,12 @@
 Eggs:7
 Yogurt:3
 Milk:1
-Butter:1
+Butter:6
 Feta:8
 Sugar:6
-<<<<<<< HEAD
 Curry Powder:6
-=======
 Pasta:1000
 Honey:1000
 Apple:1000
->>>>>>> d39495b16231502d6558f61b2e9f8256ab23fd1b
+Banana:2
+Orange:2

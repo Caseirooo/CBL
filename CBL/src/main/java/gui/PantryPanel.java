@@ -1,3 +1,5 @@
+package gui;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -7,6 +9,10 @@
  *
  * @author franc
  */
+import files.IngredientReader;
+import model.Pantry;
+import model.Catalog;
+import model.Ingredient;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import java.util.Arrays;

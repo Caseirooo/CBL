@@ -1,4 +1,14 @@
+package gui;
 
+
+import style.WindowSize;
+import style.AppStyle;
+import gui.RecipeDetailFrame;
+import files.RecipeReader;
+import logic.RecipeMatcher;
+import model.RecipeMatchResult;
+import model.Recipe;
+import model.Ingredient;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 

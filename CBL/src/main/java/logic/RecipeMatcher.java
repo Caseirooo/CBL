@@ -1,4 +1,9 @@
+package logic;
 
+
+import model.RecipeMatchResult;
+import model.Recipe;
+import model.Ingredient;
 import java.util.ArrayList;
 import java.util.Collections;
 
