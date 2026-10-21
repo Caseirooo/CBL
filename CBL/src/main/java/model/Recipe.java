@@ -1,12 +1,10 @@
 package model;
 
-
-import model.Ingredient;
 import java.util.ArrayList;
 
 /**
- * this class contains information about the name of the recipe, list of
- * Ingredients needed, instructions, prep time, and difficulty
+ * This class contains information about the name of the recipe, list of
+ * ingredients needed, instructions, prep time, and difficulty
  *
  * @author anast
  */

@@ -1,9 +1,7 @@
 package gui;
 
-
 import style.WindowSize;
 import style.AppStyle;
-import gui.RecipeDetailFrame;
 import files.RecipeReader;
 import logic.RecipeMatcher;
 import model.RecipeMatchResult;
@@ -13,20 +11,17 @@ import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import model.Pantry;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 /**
+ * Shows all of the recipes in a table. The recipes are sorted based on how well
+ * they match the ingredients in the pantry.
  *
  * @author anast
  */
-public class RecipeListFrame extends    javax.swing.JFrame {
+public class RecipeListFrame extends javax.swing.JFrame {
 
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RecipeListFrame.class.getName());
+    private final ArrayList<RecipeMatchResult> allRecipesMatched;
+    private final Pantry pantry;
 
-    private ArrayList<RecipeMatchResult> allRecipesMatched;
-    private Pantry pantry;
     /**
      * Creates new form RecipeListFrame
      */
@@ -55,6 +50,8 @@ public class RecipeListFrame extends    javax.swing.JFrame {
             });
         }
     }
+
+    //gives every component a color from AppStyle
     private void applyColors() {
         getContentPane().setBackground(AppStyle.CREAM);
         recipeLabel.setForeground(AppStyle.TERRACOTTA);
@@ -68,8 +65,6 @@ public class RecipeListFrame extends    javax.swing.JFrame {
         jScrollPane1.getViewport().setBackground(AppStyle.LIGHT_GREEN);
         recipeTable.getTableHeader().setForeground(AppStyle.DARK_GREEN);
         recipeTable.getTableHeader().setBackground(AppStyle.CREAM);
-        
-        
     }
 
     private String missingIngredientsToText(ArrayList<Ingredient> missingIngredients) {
@@ -80,16 +75,11 @@ public class RecipeListFrame extends    javax.swing.JFrame {
             }
             text += ingredient.getName();
         }
-
         if (text.isEmpty()) {
             return "nothing";
         }
-
         return text;
     }
-   
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -199,39 +189,6 @@ public class RecipeListFrame extends    javax.swing.JFrame {
             dispose();
         }
     }//GEN-LAST:event_recipeTableMouseClicked
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        ArrayList<Ingredient> testPantry = new ArrayList<>();
-        Ingredient eggs = new Ingredient("eggs", 5, "Dairy");
-        Ingredient flour = new Ingredient("flour", 500, "Grains");
-        Ingredient milk = new Ingredient("milk", 1000, "Dairy");
-        testPantry.add(eggs);
-        testPantry.add(flour);
-        testPantry.add(milk);
-        java.awt.EventQueue.invokeLater(() -> new PantryPanel().setVisible(true));
-//        java.awt.EventQueue.invokeLater(() -> new RecipeListFrame(testPantry).setVisible(true));
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeButton;

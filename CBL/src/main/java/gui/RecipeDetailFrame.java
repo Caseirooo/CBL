@@ -26,7 +26,7 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
     private Recipe recipe;
     private Pantry pantry;
     private PantryStorage pantryS;
-    
+
     /**
      * Creates new form RecipeDetailFrame
      */

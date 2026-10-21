@@ -1,6 +1,5 @@
 package logic;
 
-
 import model.RecipeMatchResult;
 import model.Recipe;
 import model.Ingredient;
@@ -27,7 +26,6 @@ public class RecipeMatcher {
                     matchedIngredients = matchedIngredients + 1;
                 }
             }
-
         }
         int compatibility;
         compatibility = matchedIngredients * 100 / recipe.getIngredients().size();
@@ -53,13 +51,13 @@ public class RecipeMatcher {
         return missingIngredients;
     }
 
-    //runs through all recipes and finds compatability and missing ingredients 
+    //runs through all recipes and finds compatibility and missing ingredients 
     public ArrayList<RecipeMatchResult> matchAllRecipes(ArrayList<Ingredient> pantry, ArrayList<Recipe> recipes) {
 
         //where the result is collected
         ArrayList<RecipeMatchResult> matchedRecipes = new ArrayList<>();
 
-        //goes through each recipe and calculates compatability and finds missing ingredients 
+        //goes through each recipe and calculates compatibility and finds missing ingredients 
         for (Recipe recipe : recipes) {
             int percentage = calculateCompatibility(pantry, recipe);
             ArrayList<Ingredient> missingIngredients = findMissingIngredients(pantry, recipe);
@@ -68,7 +66,7 @@ public class RecipeMatcher {
             matchedRecipes.add(matchedRecipesResult);
         }
 
-        //sorts the lost of recipes in the order that is specified in the class RecipeMatchResult
+        //sorts the list of recipes in the order that is specified in the class RecipeMatchResult
         Collections.sort(matchedRecipes);
 
         return matchedRecipes;

@@ -139,7 +139,7 @@ public class RecipeMatcherTest {
     }
 
     /**
-        * The missing amount refers to the amount of each ingredient needed for the
+     * The missing amount refers to the amount of each ingredient needed for the
      * recipe minus the amount of each ingredient that are in the pantry.
      */
     @Test

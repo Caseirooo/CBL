@@ -1,8 +1,6 @@
 model\Catalog.class
 style\AppStyle.class
 model\RecipeMatchResult.class
-TestMatcher.class
-CBL.class
 model\Recipe.class
 gui\RecipeListFrame$3.class
 model\Pantry.class
@@ -17,4 +15,3 @@ files\RecipeReader.class
 gui\RecipeDetailFrame.class
 gui\PantryPanel.class
 gui\RecipeListFrame.class
-TestReader.class
