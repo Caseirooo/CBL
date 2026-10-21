@@ -1,8 +1,5 @@
 package model;
 
-
-import model.Recipe;
-import model.Ingredient;
 import java.util.ArrayList;
 
 /**
@@ -13,10 +10,9 @@ import java.util.ArrayList;
  */
 public class RecipeMatchResult implements Comparable<RecipeMatchResult> {
 
+    /*fields are final because they refer to the current status of the current 
+    recipe which does not change until the ingredients in the pantry are changed*/
     private final Recipe recipe;
-    /*fields are final because they refer to the 
-                                   current status of the current recipe whcih does not 
-                                   change untill the ingredients in the pantry are changed*/
     private final int percentage;
     private final ArrayList<Ingredient> missingIngredients;
 

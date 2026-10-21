@@ -1,3 +1,5 @@
+package model;
+
 /**
  * This tests whether the ingredients get assigned the correct characteristics
  * @author franc

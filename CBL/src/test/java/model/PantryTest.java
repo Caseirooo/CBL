@@ -1,3 +1,5 @@
+package model;
+
 /**
  * This tests whether removing and adding works
  * @author franc

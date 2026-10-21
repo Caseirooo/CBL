@@ -1,6 +1,5 @@
 package files;
 
-
 import model.Recipe;
 import model.Ingredient;
 import java.io.File;
@@ -9,7 +8,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * this class reads all of the recipes from recipes.csv and turns each line into a Recipe object
+ * This class reads all of the recipes from recipes.csv and turns each line into
+ * a Recipe object. if a broken line is found it is skipped, an empty list is
+ * returned.
+ *
+ * A list of all recipes that can be read is returned.
  *
  * @author anast
  */
@@ -22,15 +25,16 @@ public class RecipeReader {
             File file = new File("recipes.csv"); //tells which file to read 
             Scanner reader = new Scanner(file); //opens the file
 
-            /**skips the first line as it contains only the headers of each column in the file*/  
-            reader.nextLine(); 
+            /*skips the first line as it contains only the headers of each column in the file*/
+            reader.nextLine();
 
             while (reader.hasNextLine()) {
                 String line = reader.nextLine();
 
-                /**handles each line separately, so one broken line is skipped instead of stopping the whole file.*/
+                /*handles each line separately, so one broken line is skipped 
+                instead of stopping the whole file.*/
                 try {
-                    /**splits each recipe into: name, time, difficulty, ingredients, and steps*/
+                    /*splits each recipe into: name, time, difficulty, ingredients, and steps*/
                     String[] parts = line.split(",");
                     String name = parts[0];
                     int time = Integer.parseInt(parts[1]);
@@ -38,24 +42,28 @@ public class RecipeReader {
                     String ingredients = parts[3];
                     String steps = parts[4];
 
-                    /**splits ingredients into actual separate ingredients, quantities, and categories*/
+                    /*splits ingredients into actual separate ingredients, quantities,
+                    and categories*/
                     ArrayList<Ingredient> ingredientList = new ArrayList<>();
                     String[] ingredientPieces = ingredients.split(";");
 
-                    /**for each loop avoids mistakes with counts of i (like in a for loop) and ensures all ingredients are presented to user*/
+                    /*for each loop avoids mistakes with counts of i (like in a for loop)
+                    and ensures all ingredients are presented to user*/
                     for (String piece : ingredientPieces) {
                         String[] ingredientParts = piece.split(":");
                         String ingredientName = ingredientParts[0];
                         int ingredientQuantity = Integer.parseInt(ingredientParts[1]);
                         String ingredientCategory = ingredientParts[2];
 
-                        /**we create an object and pass on the ingredient information. Then we add this object to the list of the ingredients needed for the recipe.*/
+                        /*we create an object and pass on the ingredient information. 
+                        Then we add this object to the list of the ingredients needed 
+                        for the recipe.*/
                         Ingredient ingredient = new Ingredient(ingredientName,
                                 ingredientQuantity, ingredientCategory);
                         ingredientList.add(ingredient);
                     }
 
-                    /**splits the steps into a list, one instruction per item */
+                    //splits the steps into a list, one instruction per item 
                     ArrayList<String> instructionList = new ArrayList<>();
                     String[] instructionSteps = steps.split(";");
 
@@ -63,8 +71,9 @@ public class RecipeReader {
                         instructionList.add(step);
                     }
 
-                    /**create the recipe and add it to the list */
-                    Recipe recipe = new Recipe(name, time, difficulty, ingredientList, instructionList);
+                    //create the recipe and add it to the list 
+                    Recipe recipe = new Recipe(name, time, difficulty, ingredientList,
+                            instructionList);
                     recipes.add(recipe);
                 } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
                     System.out.println("Skipped a broken line: " + line);

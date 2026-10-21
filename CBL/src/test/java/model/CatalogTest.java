@@ -1,3 +1,5 @@
+package model;
+
 /**
  * Tests for finding ingredients and introducing new ones
  * @author franc
