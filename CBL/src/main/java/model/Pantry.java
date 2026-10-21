@@ -1,14 +1,10 @@
 package model;
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 /**
- *
+ * This handles changing the quantity of ingredients in the pantry and looking for specific ingredients 
  * @author franc
  */
 
+import files.PantryStorage;
 import java.util.ArrayList;
 
 public class Pantry {

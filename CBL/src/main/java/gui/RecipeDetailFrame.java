@@ -8,7 +8,7 @@ import model.RecipeMatchResult;
 import model.Recipe;
 import model.Ingredient;
 import model.Pantry;
-import model.PantryStorage;
+import files.PantryStorage;
 import model.Catalog;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;

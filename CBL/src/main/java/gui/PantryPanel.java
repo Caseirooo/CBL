@@ -1,18 +1,14 @@
 package gui;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 /**
- *
+ * Pantry panel which allows for the addition or removal of ingredients and displays the user's current pantry.
  * @author franc
  */
 import files.IngredientReader;
 import model.Pantry;
 import model.Catalog;
 import model.Ingredient;
-import model.PantryStorage;
+import files.PantryStorage;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import java.util.Arrays;
