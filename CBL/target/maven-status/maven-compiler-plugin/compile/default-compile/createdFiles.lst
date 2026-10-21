@@ -14,7 +14,6 @@ PantryPanel.class
 Catalog.class
 RecipeMatchResult.class
 WindowSize.class
-test.class
 IngredientReader.class
 RecipeMatcher.class
 RecipeListFrame$3.class
