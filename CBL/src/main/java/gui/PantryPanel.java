@@ -1,7 +1,9 @@
 package gui;
 
 /**
- * Pantry panel which allows for the addition or removal of ingredients and displays the user's current pantry.
+ * Pantry panel which allows for the addition or removal of ingredients and
+ * displays the user's current pantry.
+ *
  * @author franc
  */
 import files.IngredientReader;
@@ -36,6 +38,7 @@ public class PantryPanel extends javax.swing.JFrame {
 
         pantry = new Pantry(catalog);
         pantryS = new PantryStorage(pantry);
+        pantry.setStorage(pantryS);
         pantryS.load();
         cmbIngredient.removeAllItems();
         for (Ingredient ingredient : catalog.getIngredients()) {

@@ -1,6 +1,9 @@
 package model;
+
 /**
- * This handles changing the quantity of ingredients in the pantry and looking for specific ingredients 
+ * This handles changing the quantity of ingredients in the pantry and looking
+ * for specific ingredients
+ *
  * @author franc
  */
 
@@ -12,6 +15,10 @@ public class Pantry {
     private PantryStorage pantryS;
     private Catalog catalog;
     private ArrayList<Ingredient> ingredients;
+
+    public void setStorage(PantryStorage pantryS) {
+        this.pantryS = pantryS;
+    }
 
     public Pantry(Catalog catalog) {
         this.catalog = catalog;

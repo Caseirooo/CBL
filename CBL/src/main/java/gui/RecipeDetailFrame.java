@@ -25,7 +25,6 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
 
     private Recipe recipe;
     private Pantry pantry;
-    private PantryStorage pantryS;
 
     /**
      * Creates new form RecipeDetailFrame
@@ -206,7 +205,6 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
     private void finishedRecipeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishedRecipeButtonActionPerformed
 
         if (pantry.useUp(recipe.getIngredients())) {
-            pantryS.save();
             PantryPanel next = new PantryPanel();
             next.setVisible(true);
             this.dispose();
