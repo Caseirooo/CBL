@@ -1,8 +1,8 @@
 package model;
 
 /**
- * This handles changing the quantity of ingredients in the pantry and looking
- * for specific ingredients
+ * Holds the ingredients the user currently has. Adds and removes quantities, 
+ * looks up ingredients by name, and uses up a recipe's ingredients and saves the result.
  *
  * @author franc
  */

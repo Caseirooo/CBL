@@ -17,7 +17,7 @@ import java.util.Arrays;
 import style.AppStyle;
 
 public class PantryPanel extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PantryPanel.class.getName());
 
     /**
@@ -26,19 +26,19 @@ public class PantryPanel extends javax.swing.JFrame {
     private Catalog catalog;
     private Pantry pantry;
     private PantryStorage pantryS;
-    
+
     public PantryPanel() {
         initComponents();
         applyColors();
         setLocationRelativeTo(null);
-        
+
         try {
             catalog = new IngredientReader().readCatalog();
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, "Could not read catalog.txt: " + e.getMessage());
             catalog = new Catalog(new String[0]);
         }
-        
+
         pantry = new Pantry(catalog);
         pantryS = new PantryStorage(pantry);
         pantry.setStorage(pantryS);
@@ -49,7 +49,7 @@ public class PantryPanel extends javax.swing.JFrame {
         }
         refreshDisplay();
     }
-    
+
     private void applyColors() {
         getContentPane().setBackground(AppStyle.CREAM);
         pantryLabel.setForeground(AppStyle.LIGHT_PINK);
@@ -204,7 +204,7 @@ public class PantryPanel extends javax.swing.JFrame {
     public Pantry getPantry() {
         return pantry;
     }
-    
+
     private void changeSelected(int direction) {
         String name = (String) cmbIngredient.getSelectedItem();
         if (name == null) {
@@ -232,7 +232,7 @@ public class PantryPanel extends javax.swing.JFrame {
         pantryS.save();
         refreshDisplay();
     }
-    
+
     private void refreshDisplay() {
         // ingredients sorted A-Z by name
         java.util.ArrayList<Ingredient> sorted = pantry.getIngredients();
@@ -241,9 +241,9 @@ public class PantryPanel extends javax.swing.JFrame {
         // categories sorted A-Z (on a copy, so the catalog isn't reordered)
         String[] categories = Arrays.copyOf(catalog.getCategories(), catalog.getCategories().length);
         Arrays.sort(categories);
-        
+
         StringBuilder text = new StringBuilder();
-        
+
         for (String category : categories) {
             StringBuilder section = new StringBuilder();
             for (Ingredient ingredient : sorted) {
@@ -259,7 +259,7 @@ public class PantryPanel extends javax.swing.JFrame {
                 text.append(category).append("\n").append(section).append("\n");
             }
         }
-        
+
         if (text.length() == 0) {
             text.append("Your pantry is empty.");
         }
