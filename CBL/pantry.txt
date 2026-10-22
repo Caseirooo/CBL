@@ -1,1 +1,15 @@
+<<<<<<< Updated upstream
 Eggs:5
+=======
+Eggs:11
+Yogurt:3
+Milk:101
+Butter:546
+Feta:8
+Sugar:446
+Curry Powder:6
+Pasta:1000
+Honey:970
+Apple:988
+Cheese:10
+>>>>>>> Stashed changes
