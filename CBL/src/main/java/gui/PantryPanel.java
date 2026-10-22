@@ -14,6 +14,7 @@ import files.PantryStorage;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import java.util.Arrays;
+import style.AppStyle;
 
 public class PantryPanel extends javax.swing.JFrame {
 
@@ -28,7 +29,8 @@ public class PantryPanel extends javax.swing.JFrame {
 
     public PantryPanel() {
         initComponents();
-        setLocationRelativeTo(null); 
+        applyColors();
+        setLocationRelativeTo(null);
 
         try {
             catalog = new IngredientReader().readCatalog();
@@ -48,6 +50,25 @@ public class PantryPanel extends javax.swing.JFrame {
         refreshDisplay();
     }
 
+    private void applyColors() {
+        getContentPane().setBackground(AppStyle.CREAM);
+        pantryLabel.setForeground(AppStyle.LIGHT_PINK);
+        txtPantry.setBackground(AppStyle.WHITE);
+        txtPantry.setForeground(AppStyle.BROWN);
+        unitsLabel1.setForeground(AppStyle.DARK_PINK);
+        unitsLabel2.setForeground(AppStyle.DARK_PINK);
+        cmbIngredient.setForeground(AppStyle.BROWN);
+        cmbIngredient.setBackground(AppStyle.LIGHT_PINK);
+        btnAdd.setBackground(AppStyle.DARK_PINK);
+        btnAdd.setForeground(AppStyle.CREAM);
+        btnRemove.setBackground(AppStyle.DARK_PINK);
+        btnRemove.setForeground(AppStyle.CREAM);
+        txtQuantity.setBackground(AppStyle.WHITE);
+        txtQuantity.setForeground(AppStyle.BROWN);
+        Start.setForeground(AppStyle.CREAM);
+        Start.setBackground(AppStyle.DARK_PINK);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -65,37 +86,47 @@ public class PantryPanel extends javax.swing.JFrame {
         txtQuantity = new javax.swing.JTextField();
         cmbIngredient = new javax.swing.JComboBox<>();
         Start = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        unitsLabel1 = new javax.swing.JLabel();
+        unitsLabel2 = new javax.swing.JLabel();
+        pantryLabel = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        btnAdd.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         btnAdd.setText("ADD");
         btnAdd.addActionListener(this::btnAddActionPerformed);
 
+        btnRemove.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         btnRemove.setText("REMOVE");
         btnRemove.addActionListener(this::btnRemoveActionPerformed);
 
         txtPantry.setEditable(false);
         txtPantry.setColumns(20);
+        txtPantry.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         txtPantry.setRows(5);
         jScrollPane1.setViewportView(txtPantry);
 
+        txtQuantity.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         txtQuantity.addActionListener(this::txtQuantityActionPerformed);
 
+        cmbIngredient.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         cmbIngredient.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbIngredient.addActionListener(this::cmbIngredientActionPerformed);
 
+        Start.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         Start.setText("START COOKING");
         Start.addActionListener(this::StartActionPerformed);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        jLabel1.setText("Amounts: solids in grams (g), liquids in millilitres (ml), ");
+        unitsLabel1.setFont(new java.awt.Font("Lucida Fax", 2, 12)); // NOI18N
+        unitsLabel1.setText("Amounts: solids in grams (g), liquids in millilitres (ml), ");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        jLabel2.setText("everything else in pieces");
+        unitsLabel2.setFont(new java.awt.Font("Lucida Fax", 2, 12)); // NOI18N
+        unitsLabel2.setText("everything else in pieces");
+
+        pantryLabel.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
+        pantryLabel.setText("Your Pantry");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,7 +135,7 @@ public class PantryPanel extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(Start, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -116,20 +147,25 @@ public class PantryPanel extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(unitsLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(unitsLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pantryLabel)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(pantryLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
+                .addComponent(unitsLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(unitsLabel2)
+                .addGap(12, 12, 12)
                 .addComponent(cmbIngredient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -261,10 +297,11 @@ public class PantryPanel extends javax.swing.JFrame {
     private javax.swing.JButton btnRemove;
     private javax.swing.JComboBox<String> cmbIngredient;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel pantryLabel;
     private javax.swing.JTextArea txtPantry;
     private javax.swing.JTextField txtQuantity;
+    private javax.swing.JLabel unitsLabel1;
+    private javax.swing.JLabel unitsLabel2;
     // End of variables declaration//GEN-END:variables
 }

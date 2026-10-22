@@ -12,6 +12,7 @@ import files.PantryStorage;
 import model.Catalog;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import style.AppStyle;
 
 /**
  *
@@ -31,14 +32,15 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
      */
     public RecipeDetailFrame(RecipeMatchResult recipeMatchResult, Pantry pantry) {
         initComponents();
+        applyColors();
         setSize(WindowSize.WIDTH, WindowSize.HEIGHT);
         setLocationRelativeTo(null);
         this.recipeMatchResult = recipeMatchResult;
         this.pantry = pantry;
         recipe = recipeMatchResult.getRecipe();
         nameLabel.setText(recipe.getName());
-        infoLabel.setText(recipe.difficultyToWord() + " · "
-                + recipe.getPrepTime() + " min" + " · "
+        infoLabel.setText(recipe.difficultyToWord() + "    "
+                + recipe.getPrepTime() + " min" + "    "
                 + recipeMatchResult.getPercentage() + "%");
 
         String ingredientsText = "";
@@ -63,6 +65,27 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
             instructionsText += (i + 1) + ". " + recipe.getInstructions().get(i) + "\n\n";
         }
         instructionsTextArea.setText(instructionsText);
+    }
+    
+        //gives every component a color from AppStyle
+    private void applyColors() {
+        getContentPane().setBackground(AppStyle.CREAM);
+        nameLabel.setForeground(AppStyle.LIGHT_PINK);
+        infoLabel.setForeground(AppStyle.LIGHT_PINK);
+        ingredientsLabel.setForeground(AppStyle.BROWN);
+        missingIngredientsLabel.setForeground(AppStyle.BROWN);
+        ingredientsTextArea.setForeground(AppStyle.BROWN);
+        ingredientsTextArea.setBackground(AppStyle.WHITE);
+        missingIngredientsTextArea.setForeground(AppStyle.BROWN);
+        missingIngredientsTextArea.setBackground(AppStyle.WHITE);
+        unitsLabel.setForeground(AppStyle.DARK_PINK);
+        instructionsLabel.setForeground(AppStyle.BROWN);
+        instructionsTextArea.setForeground(AppStyle.BROWN);
+        instructionsTextArea.setBackground(AppStyle.WHITE);
+        finishedRecipeButton.setForeground(AppStyle.CREAM);
+        finishedRecipeButton.setBackground(AppStyle.DARK_PINK);
+        backButton.setBackground(AppStyle.DARK_PINK);
+        backButton.setForeground(AppStyle.CREAM);
     }
 
     /**
@@ -91,15 +114,19 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        nameLabel.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
         nameLabel.setText("jLabel1");
 
+        backButton.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         backButton.setText("Back");
         backButton.addActionListener(this::backButtonActionPerformed);
 
+        infoLabel.setFont(new java.awt.Font("Lucida Fax", 1, 12)); // NOI18N
         infoLabel.setText("jLabel1");
 
         ingredientsTextArea.setEditable(false);
         ingredientsTextArea.setColumns(20);
+        ingredientsTextArea.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         ingredientsTextArea.setLineWrap(true);
         ingredientsTextArea.setRows(5);
         ingredientsTextArea.setWrapStyleWord(true);
@@ -107,28 +134,34 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
 
         missingIngredientsTextArea.setEditable(false);
         missingIngredientsTextArea.setColumns(20);
+        missingIngredientsTextArea.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         missingIngredientsTextArea.setLineWrap(true);
         missingIngredientsTextArea.setRows(5);
         missingIngredientsTextArea.setWrapStyleWord(true);
         jScrollPane3.setViewportView(missingIngredientsTextArea);
 
+        ingredientsLabel.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         ingredientsLabel.setText("Ingredients:");
 
+        missingIngredientsLabel.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         missingIngredientsLabel.setText("You are missing:");
 
+        instructionsLabel.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         instructionsLabel.setText("Instructions:");
 
         instructionsTextArea.setEditable(false);
         instructionsTextArea.setColumns(20);
+        instructionsTextArea.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         instructionsTextArea.setLineWrap(true);
         instructionsTextArea.setRows(5);
         instructionsTextArea.setWrapStyleWord(true);
         jScrollPane1.setViewportView(instructionsTextArea);
 
+        finishedRecipeButton.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         finishedRecipeButton.setText("Finished recipe");
         finishedRecipeButton.addActionListener(this::finishedRecipeButtonActionPerformed);
 
-        unitsLabel.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        unitsLabel.setFont(new java.awt.Font("Lucida Fax", 2, 12)); // NOI18N
         unitsLabel.setText("Amounts: solids in grams (g), liquids in millilitres (ml), everything else in pieces");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -170,12 +203,15 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nameLabel)
-                    .addComponent(backButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(backButton)
+                        .addGap(15, 15, 15))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(nameLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(infoLabel)
-                .addGap(25, 25, 25)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ingredientsLabel)
                     .addComponent(missingIngredientsLabel))
@@ -185,13 +221,13 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(unitsLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(instructionsLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(finishedRecipeButton)
-                .addGap(37, 37, 37))
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -205,6 +241,8 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
     private void finishedRecipeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishedRecipeButtonActionPerformed
 
         if (pantry.useUp(recipe.getIngredients())) {
+            JOptionPane.showMessageDialog(this, "Enjoy your meal! The ingredients"
+                    + " have been removed from your pantry.");
             PantryPanel next = new PantryPanel();
             next.setVisible(true);
             this.dispose();

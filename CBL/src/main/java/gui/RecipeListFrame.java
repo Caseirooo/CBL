@@ -54,16 +54,16 @@ public class RecipeListFrame extends javax.swing.JFrame {
     //gives every component a color from AppStyle
     private void applyColors() {
         getContentPane().setBackground(AppStyle.CREAM);
-        recipeLabel.setForeground(AppStyle.TERRACOTTA);
-        messageLabel.setForeground(AppStyle.LIGHT_GREEN);
-        closeButton.setBackground(AppStyle.YELLOW);
-        closeButton.setForeground(AppStyle.DARK_GREEN);
-        recipeTable.setBackground(AppStyle.LIGHT_GREEN);
+        recipeLabel.setForeground(AppStyle.LIGHT_PINK);
+        messageLabel.setForeground(AppStyle.LIGHT_PINK);
+        closeButton.setBackground(AppStyle.DARK_PINK);
+        closeButton.setForeground(AppStyle.CREAM);
+        recipeTable.setBackground(AppStyle.CREAM);
         recipeTable.setForeground(AppStyle.BROWN);
-        recipeTable.setSelectionBackground(AppStyle.YELLOW);
-        recipeTable.setSelectionForeground(AppStyle.BROWN);
-        jScrollPane1.getViewport().setBackground(AppStyle.LIGHT_GREEN);
-        recipeTable.getTableHeader().setForeground(AppStyle.DARK_GREEN);
+        recipeTable.setSelectionBackground(AppStyle.DARK_PINK);
+        recipeTable.setSelectionForeground(AppStyle.CREAM);
+        jScrollPane1.getViewport().setBackground(AppStyle.LIGHT_PINK);
+        recipeTable.getTableHeader().setForeground(AppStyle.DARK_PINK);
         recipeTable.getTableHeader().setBackground(AppStyle.CREAM);
     }
 
@@ -98,8 +98,10 @@ public class RecipeListFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        recipeLabel.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
         recipeLabel.setText("Recipes you can cook:");
 
+        recipeTable.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         recipeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -128,6 +130,7 @@ public class RecipeListFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(recipeTable);
 
+        closeButton.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
         closeButton.setText("Back to Pantry");
         closeButton.addActionListener(this::closeButtonActionPerformed);
 
@@ -151,13 +154,13 @@ public class RecipeListFrame extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(13, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(recipeLabel)
                     .addComponent(closeButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 527, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
                 .addComponent(messageLabel)
                 .addGap(26, 26, 26))
         );
