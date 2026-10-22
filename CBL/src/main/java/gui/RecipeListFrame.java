@@ -1,15 +1,15 @@
 package gui;
 
-import style.WindowSize;
-import style.AppStyle;
 import files.RecipeReader;
-import logic.RecipeMatcher;
-import model.RecipeMatchResult;
-import model.Recipe;
-import model.Ingredient;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import logic.RecipeMatcher;
+import model.Ingredient;
 import model.Pantry;
+import model.Recipe;
+import model.RecipeMatchResult;
+import style.AppStyle;
+import style.WindowSize;
 
 /**
  * Shows all of the recipes in a table. The recipes are sorted based on how well

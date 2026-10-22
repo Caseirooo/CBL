@@ -7,9 +7,6 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import model.Catalog;
-import model.Pantry;
-import model.Ingredient;
 
 class PantryTest {
 

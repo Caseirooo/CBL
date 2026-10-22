@@ -7,13 +7,13 @@ package gui;
  * @author franc
  */
 import files.IngredientReader;
-import model.Pantry;
-import model.Catalog;
-import model.Ingredient;
 import files.PantryStorage;
 import java.io.IOException;
-import javax.swing.JOptionPane;
 import java.util.Arrays;
+import javax.swing.JOptionPane;
+import model.Catalog;
+import model.Ingredient;
+import model.Pantry;
 import style.AppStyle;
 
 public class PantryPanel extends javax.swing.JFrame {
@@ -65,8 +65,8 @@ public class PantryPanel extends javax.swing.JFrame {
         btnRemove.setForeground(AppStyle.CREAM);
         txtQuantity.setBackground(AppStyle.WHITE);
         txtQuantity.setForeground(AppStyle.BROWN);
-        Start.setForeground(AppStyle.CREAM);
-        Start.setBackground(AppStyle.DARK_PINK);
+        startCooking.setForeground(AppStyle.CREAM);
+        startCooking.setBackground(AppStyle.DARK_PINK);
     }
 
     /**
@@ -85,7 +85,7 @@ public class PantryPanel extends javax.swing.JFrame {
         txtPantry = new javax.swing.JTextArea();
         txtQuantity = new javax.swing.JTextField();
         cmbIngredient = new javax.swing.JComboBox<>();
-        Start = new javax.swing.JButton();
+        startCooking = new javax.swing.JButton();
         unitsLabel1 = new javax.swing.JLabel();
         unitsLabel2 = new javax.swing.JLabel();
         pantryLabel = new javax.swing.JLabel();
@@ -115,9 +115,9 @@ public class PantryPanel extends javax.swing.JFrame {
         cmbIngredient.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbIngredient.addActionListener(this::cmbIngredientActionPerformed);
 
-        Start.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
-        Start.setText("START COOKING");
-        Start.addActionListener(this::StartActionPerformed);
+        startCooking.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
+        startCooking.setText("START COOKING");
+        startCooking.addActionListener(this::startCookingActionPerformed);
 
         unitsLabel1.setFont(new java.awt.Font("Lucida Fax", 2, 12)); // NOI18N
         unitsLabel1.setText("Amounts: solids in grams (g), liquids in millilitres (ml), ");
@@ -136,7 +136,7 @@ public class PantryPanel extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Start, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(startCooking, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
@@ -173,7 +173,7 @@ public class PantryPanel extends javax.swing.JFrame {
                     .addComponent(btnAdd)
                     .addComponent(btnRemove))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Start)
+                .addComponent(startCooking)
                 .addGap(12, 12, 12))
         );
 
@@ -196,11 +196,12 @@ public class PantryPanel extends javax.swing.JFrame {
 
     }//GEN-LAST:event_cmbIngredientActionPerformed
 
-    private void StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartActionPerformed
+    private void startCookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startCookingActionPerformed
         RecipeListFrame next = new RecipeListFrame(pantry.getIngredients(), pantry);
         next.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_StartActionPerformed
+    }//GEN-LAST:event_startCookingActionPerformed
+    
     public Pantry getPantry() {
         return pantry;
     }
@@ -292,13 +293,13 @@ public class PantryPanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Start;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnRemove;
     private javax.swing.JComboBox<String> cmbIngredient;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel pantryLabel;
+    private javax.swing.JButton startCooking;
     private javax.swing.JTextArea txtPantry;
     private javax.swing.JTextField txtQuantity;
     private javax.swing.JLabel unitsLabel1;

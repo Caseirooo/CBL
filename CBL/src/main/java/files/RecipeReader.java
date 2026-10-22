@@ -1,11 +1,11 @@
 package files;
 
-import model.Recipe;
-import model.Ingredient;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import model.Ingredient;
+import model.Recipe;
 
 /**
  * This class reads all of the recipes from recipes.csv and turns each line into

@@ -7,8 +7,6 @@ package model;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import model.Catalog;
-import model.Ingredient;
 import java.util.ArrayList;
 
 class CatalogTest {

@@ -1,4 +1,5 @@
 package model;
+
 /**
  * Creates each ingredient and assigns it's properties
  * @author franc

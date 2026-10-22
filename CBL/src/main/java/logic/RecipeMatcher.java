@@ -1,10 +1,10 @@
 package logic;
 
-import model.RecipeMatchResult;
-import model.Recipe;
-import model.Ingredient;
 import java.util.ArrayList;
 import java.util.Collections;
+import model.Ingredient;
+import model.Recipe;
+import model.RecipeMatchResult;
 
 /**
  * This class calculates the compatibility percentage of the recipe ingredients

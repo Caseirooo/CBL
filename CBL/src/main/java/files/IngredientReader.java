@@ -1,15 +1,17 @@
 package files;
 
 /**
- * The catalog text file is translated into individual ingredients divided by categories
+ * The catalog text file is translated into individual ingredients divided by
+ * categories
+ *
  * @author franc
  */
-import model.Catalog;
-import model.Ingredient;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import model.Catalog;
+import model.Ingredient;
 
 public class IngredientReader {
 
@@ -28,22 +30,18 @@ public class IngredientReader {
                 if (parts.length != 2) {
                     continue;
                 }
-
                 String category = parts[0].trim();
 
                 if (!categoryNames.contains(category)) {
                     categoryNames.add(category);
                 }
-
                 String[] ingredientNames = parts[1].split(",");
 
                 for (String ingredientName : ingredientNames) {
                     ingredientName = ingredientName.trim();
-
                     if (!ingredientName.isEmpty()) {
                         Ingredient ingredient
                                 = new Ingredient(ingredientName, 0, category);
-
                         loadedIngredients.add(ingredient);
                     }
                 }

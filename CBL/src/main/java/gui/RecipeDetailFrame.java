@@ -1,18 +1,15 @@
 package gui;
 
-import style.WindowSize;
-import gui.PantryPanel;
 import files.RecipeReader;
-import logic.RecipeMatcher;
-import model.RecipeMatchResult;
-import model.Recipe;
-import model.Ingredient;
-import model.Pantry;
-import files.PantryStorage;
-import model.Catalog;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import logic.RecipeMatcher;
+import model.Ingredient;
+import model.Pantry;
+import model.Recipe;
+import model.RecipeMatchResult;
 import style.AppStyle;
+import style.WindowSize;
 
 /**
  *

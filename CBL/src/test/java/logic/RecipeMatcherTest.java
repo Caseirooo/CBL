@@ -1,11 +1,11 @@
 package logic;
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import model.Ingredient;
 import model.Recipe;
 import model.RecipeMatchResult;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * The percentage, the missing ingredients and the sorting function of
