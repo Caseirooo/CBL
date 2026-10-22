@@ -66,8 +66,8 @@ public class RecipeDetailFrame extends javax.swing.JFrame {
         }
         instructionsTextArea.setText(instructionsText);
     }
-    
-        //gives every component a color from AppStyle
+
+    //gives every component a color from AppStyle
     private void applyColors() {
         getContentPane().setBackground(AppStyle.CREAM);
         nameLabel.setForeground(AppStyle.LIGHT_PINK);
