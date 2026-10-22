@@ -5,9 +5,8 @@ and lets you mark a recipe as finished to subtract the used ingredients.
 
 How to run:
 1. File > Open Project, select the CBL folder with pom.xml, and click Open.
-2. Right-click the project > Properties > Run > set Main Class to gui.PantryPanel > OK.
-3. Press Shift+F11 to build. Wait for BUILD SUCCESS in the Output window.
-4. Press F6 to run.
+2. Press Shift+F11 to build. Wait for BUILD SUCCESS in the Output window.
+3. Press F6 to run.
 
 How to run tests:
 1. In NetBeans, right-click the project (CBL) in the Projects panel.
