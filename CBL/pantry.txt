@@ -1,11 +1,1 @@
-Eggs:15
-Yogurt:3
-Milk:701
-Butter:786
-Feta:8
-Sugar:686
-Curry Powder:6
-Pasta:1000
-Honey:970
-Apple:996
-Flour:700
+Eggs:5
