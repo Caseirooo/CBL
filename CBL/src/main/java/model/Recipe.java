@@ -1,13 +1,13 @@
 package model;
 
-import java.util.ArrayList;
-
 /**
  * This class contains information about the name of the recipe, list of
  * ingredients needed, instructions, prep time, and difficulty
  *
  * @author anast
  */
+import java.util.ArrayList;
+
 public class Recipe {
 
     private final String name;

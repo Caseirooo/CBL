@@ -2,9 +2,9 @@ package model;
 
 /**
  * Creates each ingredient and assigns it's properties
+ *
  * @author franc
  */
-
 public class Ingredient {
 
     private String name;

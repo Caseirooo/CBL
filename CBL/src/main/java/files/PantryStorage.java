@@ -2,6 +2,7 @@ package files;
 
 /**
  * This handles saving and loading the user's pantry
+ *
  * @author franc
  */
 import java.io.BufferedReader;
@@ -56,4 +57,3 @@ public class PantryStorage {
         }
     }
 }
-

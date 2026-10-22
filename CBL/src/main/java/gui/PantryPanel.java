@@ -201,7 +201,7 @@ public class PantryPanel extends javax.swing.JFrame {
         next.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_startCookingActionPerformed
-    
+
     public Pantry getPantry() {
         return pantry;
     }

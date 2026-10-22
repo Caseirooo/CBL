@@ -1,12 +1,12 @@
 package model;
 
 /**
- * Holds the ingredients the user currently has. Adds and removes quantities, 
- * looks up ingredients by name, and uses up a recipe's ingredients and saves the result.
+ * Holds the ingredients the user currently has. Adds and removes quantities,
+ * looks up ingredients by name, and uses up a recipe's ingredients and saves
+ * the result.
  *
  * @author franc
  */
-
 import files.PantryStorage;
 import java.util.ArrayList;
 

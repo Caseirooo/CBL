@@ -1,12 +1,12 @@
 package style;
 
-import java.awt.Color;
-
 /**
  * Contains color scheme and style for the app.
  *
  * @author anast
  */
+import java.awt.Color;
+
 public class AppStyle {
 
     public static final Color CREAM = new Color(255, 247, 243);

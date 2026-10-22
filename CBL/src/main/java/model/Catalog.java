@@ -1,9 +1,10 @@
 package model;
 
 /**
- * holds the list of all ingredients that exist in the app, 
- * along with their categories, and lets you add, search by name,
- * and filter ingredients by category.
+ * Holds the list of all ingredients that exist in the app, along with their
+ * categories, and lets you add, search by name, and filter ingredients by
+ * category.
+ *
  * @author franc
  */
 import java.util.ArrayList;
