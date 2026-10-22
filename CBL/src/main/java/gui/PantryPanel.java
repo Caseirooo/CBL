@@ -28,6 +28,7 @@ public class PantryPanel extends javax.swing.JFrame {
 
     public PantryPanel() {
         initComponents();
+        setLocationRelativeTo(null); 
 
         try {
             catalog = new IngredientReader().readCatalog();
