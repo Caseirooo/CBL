@@ -1,6 +1,6 @@
-Dairy: Eggs, Milk, Butter, Cheese, Yogurt, Feta
-Grains: Flour, Pasta, Rice, Bread, Lasagna Sheets, Oats, Burger Buns, Tortillas
-Vegetables: Tomato, Onion, Garlic, Carrot, Potato, Cucumber, Mushrooms
-Fruit: Banana, Apple, Orange
-Meat: Minced Beef, Chicken Breast
-Other: Sugar, Salt, Olive Oil, Soy Sauce, Curry Powder, Coconut Milk, Honey, Chocolate, Vegetable Stock, Yeast
+Dairy: Butter, Cheese, Eggs, Feta, Milk, Yogurt
+Grains: Bread, Burger Buns, Flour, Lasagna Sheets, Oats, Pasta, Rice, Tortillas
+Vegetables: Carrot, Cucumber, Garlic, Mushrooms, Onion, Potato, Tomato
+Fruit: Apple, Banana, Orange
+Meat: Chicken Breast, Minced Beef
+Other: Chocolate, Coconut Milk, Curry Powder, Honey, Olive Oil, Salt, Soy Sauce, Sugar, Vegetable Stock, Yeast

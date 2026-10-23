@@ -78,7 +78,7 @@ class PantryTest {
         assertTrue(pantry.removeIngredient("Eggs", 2));
 
         assertEquals(0, pantry.getQuantity("Eggs"));
-        assertNull(pantry.findIngredient("Eggs"));
+        assertNull(pantry.findIngredientPantry("Eggs"));
     }
 
     @Test

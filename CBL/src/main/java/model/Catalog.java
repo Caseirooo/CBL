@@ -31,7 +31,7 @@ public class Catalog {
         return new ArrayList<>(ingredients);
     }
 
-    public Ingredient findIngredient(String name) {
+    public Ingredient findIngredientCatalog(String name) {
         for (Ingredient ingredient : ingredients) {
             if (ingredient.getName().equalsIgnoreCase(name)) {
                 return ingredient;

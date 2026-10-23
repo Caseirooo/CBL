@@ -30,13 +30,13 @@ public class Pantry {
             return false;
         }
 
-        Ingredient catalogIngredient = catalog.findIngredient(name);
+        Ingredient catalogIngredient = catalog.findIngredientCatalog(name);
 
         if (catalogIngredient == null) {
             return false;
         }
 
-        Ingredient pantryIngredient = findIngredient(name);
+        Ingredient pantryIngredient = findIngredientPantry(name);
 
         if (pantryIngredient != null) {
             pantryIngredient.changeQuantity(amount);
@@ -58,7 +58,7 @@ public class Pantry {
             return false;
         }
 
-        Ingredient ingredient = findIngredient(name);
+        Ingredient ingredient = findIngredientPantry(name);
 
         if (ingredient == null || ingredient.getQuantity() < amount) {
             return false;
@@ -73,7 +73,7 @@ public class Pantry {
         return true;
     }
 
-    public Ingredient findIngredient(String name) {
+    public Ingredient findIngredientPantry(String name) {
         for (Ingredient ingredient : ingredients) {
             if (ingredient.getName().equalsIgnoreCase(name)) {
                 return ingredient;
@@ -84,7 +84,7 @@ public class Pantry {
     }
 
     public int getQuantity(String name) {
-        Ingredient ingredient = findIngredient(name);
+        Ingredient ingredient = findIngredientPantry(name);
 
         if (ingredient == null) {
             return 0;

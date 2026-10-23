@@ -32,7 +32,7 @@ class CatalogTest {
 
         catalog.addIngredient(eggs);
 
-        assertEquals(eggs, catalog.findIngredient("Eggs"));
+        assertEquals(eggs, catalog.findIngredientCatalog("Eggs"));
     }
 
     @Test
@@ -44,7 +44,7 @@ class CatalogTest {
 
         catalog.addIngredient(eggs);
 
-        assertEquals(eggs, catalog.findIngredient("eggs"));
+        assertEquals(eggs, catalog.findIngredientCatalog("eggs"));
     }
 
     @Test
@@ -53,7 +53,7 @@ class CatalogTest {
             new String[]{"Dairy", "Meat"}
         );
 
-        assertNull(catalog.findIngredient("Eggs"));
+        assertNull(catalog.findIngredientCatalog("Eggs"));
     }
 
     @Test
